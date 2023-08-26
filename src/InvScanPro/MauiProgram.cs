@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using InvScanPro.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace InvScanPro
 {
@@ -15,9 +16,9 @@ namespace InvScanPro
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
+
 
             return builder.Build();
         }

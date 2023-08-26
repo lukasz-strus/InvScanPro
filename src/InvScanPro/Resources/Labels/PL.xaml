@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <x:String x:Key="Label_0001">Zliczaj środki</x:String>
+    <x:String x:Key="Label_0002">Przejdź do strony z inwenteryzacją</x:String>    
+    <x:String x:Key="Label_0003">Informacje</x:String>
+    <x:String x:Key="Label_0004">Przejdź do strony z informacjami</x:String>
+
+</ResourceDictionary>
