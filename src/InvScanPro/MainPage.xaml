@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
+             x:DataType="vm:MainViewModel"
+             x:Class="InvScanPro.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="30"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Button Text="{StaticResource Label_0001}"
+                    HeightRequest="60"
+                    WidthRequest="200"
+                    FontSize="18"
+                    SemanticProperties.Hint="{StaticResource Label_0002}"
+                    HorizontalOptions="Center"
+                    Command="{Binding NavigateToInventoryPageCommand}"/>
+            <Button Text="{StaticResource Label_0003}"
+                    HeightRequest="60"
+                    WidthRequest="200"
+                    FontSize="18"
+                    SemanticProperties.Hint="{StaticResource Label_0004}"
+                    HorizontalOptions="Center"
+                    Command="{Binding NavigateToInformationPageCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
