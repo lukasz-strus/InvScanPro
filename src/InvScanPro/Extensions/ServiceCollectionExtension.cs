@@ -9,6 +9,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<MainPage>();
         services.AddSingleton<DatePage>();
         services.AddSingleton<LocationPage>();
+        services.AddSingleton<GeneralPage>();
     }
 
     public static void AddViewModels(this IServiceCollection services)
@@ -16,5 +17,6 @@ public static class ServiceCollectionExtension
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<DateViewModel>();
         services.AddSingleton<LocationViewModel>();
+        services.AddSingleton<GeneralViewModel>();
     }
 }
