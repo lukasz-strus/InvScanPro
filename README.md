@@ -25,6 +25,9 @@
 ## <p align="center"> LocationPage </p>
 <p align="center">
 <img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/3ca081ed-46bf-413d-ae2d-87438e06b295"/>
-<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/08227b8a-30b1-4959-b2b1-1cd359402fa5"/>
+<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/0507857c-dd4b-4a1b-9d36-4dfdd31e8edd"/>
+
+
+
 </p>
 
