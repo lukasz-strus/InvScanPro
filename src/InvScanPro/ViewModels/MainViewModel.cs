@@ -6,9 +6,9 @@ namespace InvScanPro.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [RelayCommand]
-    async Task NavigateToInventoryPage()
+    async Task NavigateToDataPage()
     {
-        //TODO create inventory page and navigate mechanism
+        await Shell.Current.GoToAsync(nameof(DataPage));
     }
 
     [RelayCommand]
