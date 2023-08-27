@@ -11,7 +11,7 @@ public partial class DateViewModel : ObservableObject
     [RelayCommand]
     async Task NavigateToLocationPage()
     {
-        await Shell.Current.GoToAsync(nameof(LocationPage));
+        await Shell.Current.GoToAsync($"{nameof(LocationPage)}?Date={Date}");
     }
 
     [RelayCommand]

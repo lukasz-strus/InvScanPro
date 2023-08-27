@@ -3,8 +3,15 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace InvScanPro.ViewModels;
 
+[QueryProperty("Date", "Date")]
 public partial class LocationViewModel : ObservableObject
 {
+    [ObservableProperty]
+    string location;
+
+    [ObservableProperty]
+    string date;
+
     [RelayCommand]
     async void NavigateToGeneralPage()
     {

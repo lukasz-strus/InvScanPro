@@ -17,6 +17,7 @@
     <x:String x:Key="Label_0012">Czynności</x:String>
     <x:String x:Key="Label_0013">Data</x:String>
     <x:String x:Key="Label_0014">Pomieszczenie</x:String>
+    <x:String x:Key="Label_0015">Numer pomieszczenia</x:String>
 
 
 </ResourceDictionary>

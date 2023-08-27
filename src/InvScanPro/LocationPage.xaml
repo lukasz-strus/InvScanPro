@@ -18,7 +18,9 @@
                    FontSize="18"
                    HorizontalOptions="Center"/>
 
-            <Entry HeightRequest="60"
+            <Entry Placeholder="{StaticResource Label_0015}"
+                   Text="{Binding Location}"
+                   HeightRequest="60"
                    WidthRequest="200"
                    FontSize="18"
                    HorizontalOptions="Center"/>
