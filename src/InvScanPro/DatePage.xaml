@@ -18,7 +18,8 @@
                    FontSize="18"
                    HorizontalOptions="Center"/>
 
-            <DatePicker HeightRequest="60"
+            <DatePicker Date="{Binding Date}"
+                        HeightRequest="60"
                         WidthRequest="200"
                         FontSize="18"
                         HorizontalOptions="Center"/>
@@ -36,7 +37,8 @@
                     WidthRequest="200" 
                     FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0009}"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Command ="{Binding LoadFileCommand}"/>
 
         </VerticalStackLayout>
     </ScrollView>
