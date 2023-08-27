@@ -4,7 +4,7 @@
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.DatePage"
              x:DataType="vm:DateViewModel"
-             Title="Data">
+             Title="{StaticResource Label_0013}">
     <ScrollView>
         <VerticalStackLayout
             Spacing="30"
