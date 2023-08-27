@@ -1,5 +1,6 @@
 ﻿using InvScanPro.ViewModels;
 using Microsoft.Extensions.Logging;
+using InvScanPro.Extensions;
 
 namespace InvScanPro;
 
@@ -16,12 +17,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddSingleton<MainViewModel>();
-
-        builder.Services.AddSingleton<DatePage>();
-        builder.Services.AddSingleton<DateViewModel>();
-
+        builder.Services.AddPages();
+        builder.Services.AddViewModels();
 
         return builder.Build();
     }

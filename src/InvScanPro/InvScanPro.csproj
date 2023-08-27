@@ -63,6 +63,9 @@
 	  <MauiXaml Update="DatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LocationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Labels\PL.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

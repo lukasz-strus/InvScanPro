@@ -3,15 +3,19 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace InvScanPro.ViewModels;
 
-public partial class DateViewModel : ObservableObject
+[QueryProperty("Date", "Date")]
+public partial class LocationViewModel : ObservableObject
 {
     [ObservableProperty]
-    DateTime date = DateTime.Now; // TODO get date from file
+    string location;
+
+    [ObservableProperty]
+    string date;
 
     [RelayCommand]
-    async Task NavigateToLocationPage()
+    async void NavigateToGeneralPage()
     {
-        await Shell.Current.GoToAsync($"{nameof(LocationPage)}?Date={Date}");
+        //TODO create general page and navigate mechanism
     }
 
     [RelayCommand]
