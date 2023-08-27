@@ -22,7 +22,8 @@
                     FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0002}"
                     HorizontalOptions="Center"
-                    Command="{Binding NavigateToInventoryPageCommand}"/>
+                    Command="{Binding NavigateToDataPageCommand}"/>
+            
             <Button Text="{StaticResource Label_0003}"
                     HeightRequest="60"
                     WidthRequest="200"

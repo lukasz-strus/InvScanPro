@@ -7,5 +7,10 @@
     <x:String x:Key="Label_0002">Przejdź do strony z inwenteryzacją</x:String>    
     <x:String x:Key="Label_0003">Informacje</x:String>
     <x:String x:Key="Label_0004">Przejdź do strony z informacjami</x:String>
+    <x:String x:Key="Label_0005">Podaj datę inwenteryzacji</x:String>
+    <x:String x:Key="Label_0006">Dalej</x:String>
+    <x:String x:Key="Label_0007">Przejdź do strony z lokacją</x:String>
+    <x:String x:Key="Label_0008">Wczytaj</x:String>
+    <x:String x:Key="Label_0009">Wczytaj plik z bazą danych</x:String>
 
 </ResourceDictionary>
