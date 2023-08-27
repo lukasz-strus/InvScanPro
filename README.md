@@ -10,7 +10,7 @@
 ## <p align="center"> MainPage </p>
 
 <p align="center">
-<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/470f2e9a-19c3-4013-8cf1-ba6a639b3e8a"/>
+<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/7c0e9134-9383-490b-87bb-7e5b50d69201"/>
 </p>
 
 ## <p align="center"> DatePage </p>
