@@ -8,7 +8,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     async Task NavigateToDataPage()
     {
-        await Shell.Current.GoToAsync(nameof(DataPage));
+        await Shell.Current.GoToAsync(nameof(DatePage));
     }
 
     [RelayCommand]

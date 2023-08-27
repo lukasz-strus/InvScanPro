@@ -3,8 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace InvScanPro.ViewModels;
 
-public partial class DataViewModel : ObservableObject
+public partial class DateViewModel : ObservableObject
 {
+    public string Date { get; set; }
+
     [RelayCommand]
     async Task NavigateToLocationPage()
     {

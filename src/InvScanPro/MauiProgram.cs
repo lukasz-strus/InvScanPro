@@ -19,8 +19,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<MainViewModel>();
 
-        builder.Services.AddSingleton<DataPage>();
-        builder.Services.AddSingleton<DataViewModel>();
+        builder.Services.AddSingleton<DatePage>();
+        builder.Services.AddSingleton<DateViewModel>();
 
 
         return builder.Build();

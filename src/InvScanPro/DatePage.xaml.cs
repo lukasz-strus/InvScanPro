@@ -2,9 +2,9 @@ using InvScanPro.ViewModels;
 
 namespace InvScanPro;
 
-public partial class DataPage : ContentPage
+public partial class DatePage : ContentPage
 {
-	public DataPage(DataViewModel vm)
+	public DatePage(DateViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;
