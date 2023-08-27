@@ -27,12 +27,15 @@
                     HeightRequest="60"
                     WidthRequest="200" 
                     FontSize="18"
-                    HorizontalOptions="Center"/>
+                    SemanticProperties.Hint="{StaticResource Label_0007}"
+                    HorizontalOptions="Center"
+                    Command="{Binding NavigateToLocationPageCommand}"/>
 
-            <Button Text="{StaticResource Label_0007}"
+            <Button Text="{StaticResource Label_0008}"
                     HeightRequest="60"
                     WidthRequest="200" 
                     FontSize="18"
+                    SemanticProperties.Hint="{StaticResource Label_0009}"
                     HorizontalOptions="Center"/>
 
         </VerticalStackLayout>
