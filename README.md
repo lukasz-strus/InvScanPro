@@ -17,6 +17,9 @@
 
 <p align="center">
 <img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/0dec9912-7267-4587-ba7b-046fb6529be0"/>
+  
+<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/97266cbe-5477-47dd-aa62-8aea1b534bc1"/>
+
 </p>
 
 ## <p align="center"> LocationPage </p>
