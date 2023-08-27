@@ -5,7 +5,9 @@
         public AppShell()
         {
             InitializeComponent();
+
             Routing.RegisterRoute(nameof(DatePage), typeof(DatePage));
+            Routing.RegisterRoute(nameof(LocationPage), typeof(LocationPage));
         }
     }
 }

@@ -11,7 +11,7 @@ public partial class DateViewModel : ObservableObject
     [RelayCommand]
     async Task NavigateToLocationPage()
     {
-        //TODO create location page and navigate mechanism
+        await Shell.Current.GoToAsync(nameof(LocationPage));
     }
 
     [RelayCommand]
