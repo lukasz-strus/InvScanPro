@@ -32,18 +32,4 @@ public partial class LocationViewModel : ObservableObject
     {
         //TODO create load file mechanism
     }
-
-    private DateTime SetDateTime(string dateString)
-    {
-        dateString = dateString.Replace("%20", " ");
-
-        if (DateTime.TryParseExact(dateString, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
-        {
-            return result;
-        }
-        else
-        {
-            return DateTime.Now;
-        }
-    }
 }
