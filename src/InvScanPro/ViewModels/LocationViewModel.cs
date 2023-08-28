@@ -5,24 +5,23 @@ using System.Globalization;
 
 namespace InvScanPro.ViewModels;
 
-[QueryProperty("Date", "Date")]
+[QueryProperty(nameof(Inventory), "Inventory")]
 public partial class LocationViewModel : ObservableObject
 {
     [ObservableProperty]
-    string location;
+    Inventory inventory;
 
     [ObservableProperty]
-    string date;
+    string location;
 
     [RelayCommand]
     async Task NavigateToGeneralPage()
     {
-        DateTime dateTime = SetDateTime(Date);
-        var inventory = new Inventory(Location, dateTime);
+        Inventory.Location = Location;
 
         var navigationParameter = new Dictionary<string, object>
         {
-            { "Inventory", inventory }
+            { "Inventory", Inventory }
         };
 
         await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
