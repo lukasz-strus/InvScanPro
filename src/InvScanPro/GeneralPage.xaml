@@ -4,7 +4,7 @@
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.GeneralPage"
              x:DataType="vm:GeneralViewModel"
-             Title="Ogólne">
+             Title="{StaticResource Label_0016}">
     <Grid Margin="10"
           Padding="10"
           RowSpacing="50"
@@ -28,7 +28,7 @@
         <StackLayout Grid.Column="0"
                      Grid.Row="0"
                      Grid.ColumnSpan="2">
-            <Label Text="Numer ST"
+            <Label Text="{StaticResource Label_0017}"
                    WidthRequest="100"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -41,17 +41,17 @@
         
         <Button Grid.Column="2"
                 Grid.Row="0"
-                Text="Szukaj"
+                Text="{StaticResource Label_0018}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                SemanticProperties.Hint="Szukaj"
+                SemanticProperties.Hint="{StaticResource Label_0019}"
                 HorizontalOptions="Center"/>
         
         <StackLayout Grid.Column="0"
                      Grid.Row="1"
-                     Grid.ColumnSpan="3">            
-            <Label Text="Nazwa"
+                     Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0020}"
                    WidthRequest="100"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -66,7 +66,7 @@
         <StackLayout Grid.Column="0"
              Grid.Row="2"
              Grid.ColumnSpan="3">
-            <Label Text="Informacja nr. 1"
+            <Label Text="{StaticResource Label_0021}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -81,7 +81,7 @@
         <StackLayout Grid.Column="0"
              Grid.Row="3"
              Grid.ColumnSpan="3">
-            <Label Text="Informacja nr. 2"
+            <Label Text="{StaticResource Label_0022}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -96,7 +96,7 @@
         <StackLayout Grid.Column="0"
              Grid.Row="4"
              Grid.ColumnSpan="3">
-            <Label Text="Informacja nr. 3"
+            <Label Text="{StaticResource Label_0023}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -111,7 +111,7 @@
         <StackLayout Grid.Column="0"
              Grid.Row="5"
              Grid.ColumnSpan="2">
-            <Label Text="Ilość"
+            <Label Text="{StaticResource Label_0024}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -124,20 +124,20 @@
         
         <Button Grid.Column="2"
                 Grid.Row="5"
-                Text="Zapisz"
+                Text="{StaticResource Label_0025}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                SemanticProperties.Hint="Zapisz"
+                SemanticProperties.Hint="{StaticResource Label_0026}"
                 HorizontalOptions="Center"/>
         
         <Button Grid.Column="0"
                 Grid.Row="6"
-                Text="Wróć"
+                Text="{StaticResource Label_0027}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                SemanticProperties.Hint="Wróć"
+                SemanticProperties.Hint="{StaticResource Label_0027}"
                 HorizontalOptions="Center"/>
         
         <Entry Grid.Column="1"
@@ -161,20 +161,20 @@
 
         <Button Grid.Column="1"
                 Grid.Row="7"
-                Text="Zapisz"
+                Text="{StaticResource Label_0025}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                SemanticProperties.Hint="Zapisz"
+                SemanticProperties.Hint="{StaticResource Label_0025}"
                 HorizontalOptions="Center"/>
 
         <Button Grid.Column="2"
                 Grid.Row="7"
-                Text="Zamknij"
+                Text="{StaticResource Label_0028}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                SemanticProperties.Hint="Zamknij"
+                SemanticProperties.Hint="{StaticResource Label_0028}"
                 HorizontalOptions="Center"/>
     </Grid>
 </ContentPage>

@@ -18,6 +18,19 @@
     <x:String x:Key="Label_0013">Data</x:String>
     <x:String x:Key="Label_0014">Pomieszczenie</x:String>
     <x:String x:Key="Label_0015">Numer pomieszczenia</x:String>
+    <x:String x:Key="Label_0016">Ogólne</x:String>
+    <x:String x:Key="Label_0017">Numer ST</x:String>
+    <x:String x:Key="Label_0018">Szukaj</x:String>
+    <x:String x:Key="Label_0019">Szukaj po numerze ST</x:String>
+    <x:String x:Key="Label_0020">Nazwa</x:String>
+    <x:String x:Key="Label_0021">Informacja nr. 1</x:String>
+    <x:String x:Key="Label_0022">Informacja nr. 2</x:String>
+    <x:String x:Key="Label_0023">Informacja nr. 3</x:String>
+    <x:String x:Key="Label_0024">Ilość</x:String>
+    <x:String x:Key="Label_0025">Zapisz</x:String>
+    <x:String x:Key="Label_0026">Zapisz ilość</x:String>
+    <x:String x:Key="Label_0027">Wróć</x:String>
+    <x:String x:Key="Label_0028">Zamknij</x:String>
 
 
 </ResourceDictionary>
