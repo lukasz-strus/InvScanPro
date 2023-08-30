@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Models;
-using System.Globalization;
 
 namespace InvScanPro.ViewModels;
 
@@ -25,6 +24,8 @@ public partial class LocationViewModel : ObservableObject
         };
 
         await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
+
+        //TODO check location value (not null)
     }
 
     [RelayCommand]
