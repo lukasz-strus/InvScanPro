@@ -34,7 +34,7 @@
                    HorizontalOptions="Start"/>
 
             <Entry x:Name="eSTNumber"
-                   Text="{Binding Product.STNumber}"
+                   Text="{Binding ScannedProduct.STNumber}"
                    WidthRequest="240"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -60,7 +60,7 @@
                    HorizontalOptions="Start"/>
             
             <Entry x:Name="eName"
-                   Text="{Binding Product.Name}"
+                   Text="{Binding ScannedProduct.Name}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -76,7 +76,7 @@
                    HorizontalOptions="Start"/>
             
             <Entry x:Name="eInfo1"
-                   Text="{Binding Product.Info1}"
+                   Text="{Binding ScannedProduct.Info1}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -92,7 +92,7 @@
                    HorizontalOptions="Start"/>
 
             <Entry x:Name="eInfo2"
-                   Text="{Binding Product.Info2}"
+                   Text="{Binding ScannedProduct.Info2}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -108,7 +108,7 @@
                    HorizontalOptions="Start"/>
 
             <Entry x:Name="eInfo3"
-                   Text="{Binding Product.Info3}"
+                   Text="{Binding ScannedProduct.Info3}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -124,7 +124,7 @@
                    HorizontalOptions="Start"/>
 
             <Entry x:Name="eQuantity"
-                   Text="{Binding Product.Quantity}"
+                   Text="{Binding ScannedProduct.Quantity}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>

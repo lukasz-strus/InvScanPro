@@ -64,6 +64,9 @@
 	  <MauiXaml Update="Views\DatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\FilterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\GeneralPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
