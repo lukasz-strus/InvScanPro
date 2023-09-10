@@ -52,21 +52,23 @@
 
             <StackLayout Orientation="Horizontal">
                 <Entry x:Name="eLocation"
-                        Text="{Binding Inventory.Location}"
-                        FontSize="17"
-                        HorizontalOptions="FillAndExpand"
+                       Text="{Binding Inventory.Location}"
+                       FontSize="17"
+                       HorizontalOptions="FillAndExpand"
                        SemanticProperties.Hint="{StaticResource Label_0033}"/>    
                 
-                <Button 
+                <Button x:Name="btnFilter"
                         Text="{StaticResource Label_0035}"
                         Margin="20,0,0,0"
                         FontSize="17"
                         HorizontalOptions="End"
-                        SemanticProperties.Hint="{StaticResource Label_0033}"/>
+                        SemanticProperties.Hint="{StaticResource Label_0033}"
+                        Command="{Binding FilterCommand}"/>
             </StackLayout>
         </StackLayout>
 
-        <Button Grid.Column="0"
+        <Button x:Name="btnBack"
+                Grid.Column="0"
                 Grid.Row="3"
                 Text="{StaticResource Label_0036}"
                 HeightRequest="50"
@@ -74,6 +76,6 @@
                 FontSize="17"
                 HorizontalOptions="Start"
                 SemanticProperties.Hint="{StaticResource Label_0036}"
-                />
+                Command="{Binding BackCommand}"/>
     </Grid>
 </ContentPage>
