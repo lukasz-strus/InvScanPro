@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:DataType="vm:MainViewModel"
-             x:Class="InvScanPro.MainPage">
+             x:Class="InvScanPro.Views.MainPage">
 
     <ScrollView>
         <VerticalStackLayout

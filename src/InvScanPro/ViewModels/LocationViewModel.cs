@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Models;
+using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 

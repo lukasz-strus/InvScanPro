@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
-             x:Class="InvScanPro.GeneralPage"
+             x:Class="InvScanPro.Views.GeneralPage"
              x:DataType="vm:GeneralViewModel"
              Title="{StaticResource Label_0016}">
     <Grid Margin="10"

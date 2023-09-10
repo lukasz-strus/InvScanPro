@@ -1,6 +1,6 @@
 ﻿using InvScanPro.ViewModels;
 
-namespace InvScanPro
+namespace InvScanPro.Views
 {
     public partial class MainPage : ContentPage
     {

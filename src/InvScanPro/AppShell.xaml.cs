@@ -1,4 +1,6 @@
-﻿namespace InvScanPro
+﻿using InvScanPro.Views;
+
+namespace InvScanPro
 {
     public partial class AppShell : Shell
     {

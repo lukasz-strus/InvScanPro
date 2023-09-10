@@ -54,19 +54,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="DatePage.xaml.cs">
+	  <Compile Update="Views\DatePage.xaml.cs">
 	    <DependentUpon>DatePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="DatePage.xaml">
+	  <MauiXaml Update="Views\DatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="GeneralPage.xaml">
+	  <MauiXaml Update="Views\GeneralPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="LocationPage.xaml">
+	  <MauiXaml Update="Views\LocationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Labels\PL.xaml">

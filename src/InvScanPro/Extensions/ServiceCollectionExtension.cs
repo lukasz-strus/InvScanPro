@@ -1,4 +1,5 @@
 ﻿using InvScanPro.ViewModels;
+using InvScanPro.Views;
 
 namespace InvScanPro.Extensions;
 
