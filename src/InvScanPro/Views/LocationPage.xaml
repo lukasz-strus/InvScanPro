@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
-             x:Class="InvScanPro.DatePage"
-             x:DataType="vm:DateViewModel"
-             Title="{StaticResource Label_0013}">
+             xmlns:vm="clr-namespace:InvScanPro.ViewModels"
+             x:Class="InvScanPro.Views.LocationPage"
+             x:DataType="vm:LocationViewModel"
+             Title="{StaticResource Label_0014}">
     <ScrollView>
         <VerticalStackLayout
             Spacing="30"
             Padding="30,0"
             VerticalOptions="Start">
 
-            <Label Text="{StaticResource Label_0005}"
+            <Label Text="{StaticResource Label_0010}"
                    HeightRequest="60"
                    WidthRequest="215"
                    Margin="0,30,0,0"
                    FontSize="18"
                    HorizontalOptions="Center"/>
 
-            <DatePicker Date="{Binding Date}"
-                        HeightRequest="60"
-                        WidthRequest="200"
-                        FontSize="18"
-                        HorizontalOptions="Center"/>
+            <Entry Placeholder="{StaticResource Label_0015}"
+                   Text="{Binding Location}"
+                   HeightRequest="60"
+                   WidthRequest="200"
+                   FontSize="18"
+                   HorizontalOptions="Center"/>
 
             <Button Text="{StaticResource Label_0006}"
                     HeightRequest="60"
                     WidthRequest="200" 
                     FontSize="18"
-                    SemanticProperties.Hint="{StaticResource Label_0007}"
+                    SemanticProperties.Hint="{StaticResource Label_0011}"
                     HorizontalOptions="Center"
-                    Command="{Binding NavigateToLocationPageCommand}"/>
+                    Command="{Binding NavigateToGeneralPageCommand}"/>
 
             <Button Text="{StaticResource Label_0008}"
                     HeightRequest="60"

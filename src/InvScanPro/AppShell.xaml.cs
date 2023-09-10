@@ -1,4 +1,6 @@
-﻿namespace InvScanPro
+﻿using InvScanPro.Views;
+
+namespace InvScanPro
 {
     public partial class AppShell : Shell
     {
@@ -8,6 +10,8 @@
 
             Routing.RegisterRoute(nameof(DatePage), typeof(DatePage));
             Routing.RegisterRoute(nameof(LocationPage), typeof(LocationPage));
+            Routing.RegisterRoute(nameof(GeneralPage), typeof(GeneralPage));
+            
         }
     }
 }

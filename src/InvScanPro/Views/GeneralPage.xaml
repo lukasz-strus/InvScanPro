@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
+             x:Class="InvScanPro.Views.GeneralPage"
+             x:DataType="vm:GeneralViewModel"
+             Title="{StaticResource Label_0016}">
+    <Grid Margin="10"
+          Padding="10"
+          RowSpacing="50"
+          ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".33*"/>
+            <ColumnDefinition Width=".33*"/>
+            <ColumnDefinition Width=".33*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Grid.Column="0"
+                     Grid.Row="0"
+                     Grid.ColumnSpan="2">
+            <Label Text="{StaticResource Label_0017}"
+                   WidthRequest="100"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eSTNumber"
+                   Text="{Binding Product.STNumber}"
+                   WidthRequest="240"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+        </StackLayout>
+        
+        <Button x:Name="btnSearch"
+                Grid.Column="2"
+                Grid.Row="0"
+                Text="{StaticResource Label_0018}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0019}"
+                HorizontalOptions="Center"
+                Command="{Binding SearchCommand}"/>
+        
+        <StackLayout Grid.Column="0"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0020}"
+                   WidthRequest="100"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+            
+            <Entry x:Name="eName"
+                   Text="{Binding Product.Name}"
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0021}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+            
+            <Entry x:Name="eInfo1"
+                   Text="{Binding Product.Info1}"
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0022}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eInfo2"
+                   Text="{Binding Product.Info2}"
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+        
+        <StackLayout Grid.Column="0"
+                     Grid.Row="4"
+                     Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0023}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eInfo3"
+                   Text="{Binding Product.Info3}"
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2">
+            <Label Text="{StaticResource Label_0024}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eQuantity"
+                   Text="{Binding Product.Quantity}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+        </StackLayout>
+        
+        <Button x:Name="btnSaveQuantity"
+                Grid.Column="2"
+                Grid.Row="5"
+                Text="{StaticResource Label_0025}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0026}"
+                HorizontalOptions="Center"
+                Command="{Binding SaveQuantityCommand}"/>
+        
+        <Button x:Name="btnBack"
+                Grid.Column="0"
+                Grid.Row="6"
+                Text="{StaticResource Label_0027}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0027}"
+                HorizontalOptions="Center"
+                Command="{Binding BackCommand}"/>
+        
+        <Entry x:Name="eInventory"
+               Grid.Column="1"
+               Grid.Row="6"
+               Grid.ColumnSpan="2"
+               Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
+               WidthRequest="240"
+               FontSize="17"
+               HorizontalOptions="End" 
+               IsEnabled="False"/>
+        
+        <Button x:Name="btnLoadFile"
+                Grid.Column="0"
+                Grid.Row="7"
+                Text="{StaticResource Label_0008}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0009}"
+                HorizontalOptions="Center"
+                Command ="{Binding LoadFileCommand}"/>
+
+        <Button x:Name="btnSave"
+                Grid.Column="1"
+                Grid.Row="7"
+                Text="{StaticResource Label_0025}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0025}"
+                HorizontalOptions="Center"
+                Command="{Binding SaveCommand}"/>
+
+        <Button x:Name="btnClose"
+                Grid.Column="2"
+                Grid.Row="7"
+                Text="{StaticResource Label_0028}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                SemanticProperties.Hint="{StaticResource Label_0028}"
+                HorizontalOptions="Center"
+                Command="{Binding CloseCommand}"/>
+    </Grid>
+</ContentPage>

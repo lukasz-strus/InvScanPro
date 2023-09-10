@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Models;
+using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
@@ -11,7 +13,17 @@ public partial class DateViewModel : ObservableObject
     [RelayCommand]
     async Task NavigateToLocationPage()
     {
-        await Shell.Current.GoToAsync($"{nameof(LocationPage)}?Date={Date}");
+        var inventory = new Inventory()
+        {
+            Date = Date
+        };
+
+        var navigationParameter = new Dictionary<string, object>
+        {
+            { "Inventory", inventory }
+        };
+
+        await Shell.Current.GoToAsync($"{nameof(LocationPage)}", navigationParameter);
     }
 
     [RelayCommand]

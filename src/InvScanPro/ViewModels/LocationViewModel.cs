@@ -1,21 +1,32 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Models;
+using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
-[QueryProperty("Date", "Date")]
+[QueryProperty(nameof(Inventory), "Inventory")]
 public partial class LocationViewModel : ObservableObject
 {
     [ObservableProperty]
-    string location;
+    Inventory inventory;
 
     [ObservableProperty]
-    string date;
+    string location;
 
     [RelayCommand]
-    async void NavigateToGeneralPage()
+    async Task NavigateToGeneralPage()
     {
-        //TODO create general page and navigate mechanism
+        Inventory.Location = Location;
+
+        var navigationParameter = new Dictionary<string, object>
+        {
+            { "Inventory", Inventory }
+        };
+
+        await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
+
+        //TODO check location value (not null)
     }
 
     [RelayCommand]
