@@ -23,4 +23,28 @@ public partial class GeneralViewModel : ObservableObject
     {
         //TODO create save quantity mechanism
     }
+
+    [RelayCommand]
+    async Task Search()
+    {
+        //TODO create search mechanism
+    }
+
+    [RelayCommand]
+    async Task Back()
+    {
+        //Tdo create back mechanism
+    }
+
+    [RelayCommand]
+    async Task Save()
+    {
+        //TODO create save mechanism
+    }
+
+    [RelayCommand]
+    async Task Close()
+    {
+        //TODO create close mechanism
+    }
 }

@@ -48,7 +48,8 @@
                 WidthRequest="100" 
                 FontSize="17"
                 SemanticProperties.Hint="{StaticResource Label_0019}"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding SearchCommand}"/>
         
         <StackLayout Grid.Column="0"
                      Grid.Row="1"
@@ -148,7 +149,8 @@
                 WidthRequest="100" 
                 FontSize="17"
                 SemanticProperties.Hint="{StaticResource Label_0027}"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding BackCommand}"/>
         
         <Entry x:Name="eInventory"
                Grid.Column="1"
@@ -179,7 +181,8 @@
                 WidthRequest="100" 
                 FontSize="17"
                 SemanticProperties.Hint="{StaticResource Label_0025}"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding SaveCommand}"/>
 
         <Button x:Name="btnClose"
                 Grid.Column="2"
@@ -189,6 +192,7 @@
                 WidthRequest="100" 
                 FontSize="17"
                 SemanticProperties.Hint="{StaticResource Label_0028}"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding CloseCommand}"/>
     </Grid>
 </ContentPage>
