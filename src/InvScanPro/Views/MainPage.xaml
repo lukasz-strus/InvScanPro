@@ -30,7 +30,7 @@
                     FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0004}"
                     HorizontalOptions="Center"
-                    Command="{Binding NavigateToInformationPageCommand}"/>
+                    Command="{Binding NavigateToFilterPageCommand}"/>
 
         </VerticalStackLayout>
     </ScrollView>

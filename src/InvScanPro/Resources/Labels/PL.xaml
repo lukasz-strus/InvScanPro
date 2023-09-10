@@ -31,6 +31,14 @@
     <x:String x:Key="Label_0026">Zapisz ilość</x:String>
     <x:String x:Key="Label_0027">Wróć</x:String>
     <x:String x:Key="Label_0028">Zamknij</x:String>
+    <x:String x:Key="Label_0029">Filtr</x:String>
+    <x:String x:Key="Label_0030">Filtrowanie zliczonych środków</x:String>
+    <x:String x:Key="Label_0031">Data inwentaryzacji</x:String>
+    <x:String x:Key="Label_0032">Wybierz datę inwentaryzacji</x:String>
+    <x:String x:Key="Label_0033">Nr. pomieszczenia</x:String>
+    <x:String x:Key="Label_0034">Wpisz nr. pomieszczenia</x:String>
+    <x:String x:Key="Label_0035">Filtruj</x:String>
+    <x:String x:Key="Label_0036">Wróć</x:String>
 
 
 </ResourceDictionary>

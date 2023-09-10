@@ -13,8 +13,8 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task NavigateToInformationPage()
+    async Task NavigateToFilterPage()
     {
-        //TODO create information page and navigate mechanism
+        await Shell.Current.GoToAsync(nameof(FilterPage));
     }
 }
