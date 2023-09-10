@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Models;
-using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
@@ -9,10 +8,10 @@ namespace InvScanPro.ViewModels;
 public partial class GeneralViewModel : ObservableObject
 {
     [ObservableProperty]
-    Inventory inventory;
+    Inventory? inventory;
 
-
-    public string GetInventoryInfo() => $"{Inventory.Date}, {Inventory.Location}";
+    [ObservableProperty]
+    Product? scannedProduct;
 
     [RelayCommand]
     async Task LoadFile()
