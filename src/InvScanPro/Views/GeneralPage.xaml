@@ -33,13 +33,15 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry x:Name="eSTNumber"
+                   Text=""
                    WidthRequest="240"
                    FontSize="17"
                    HorizontalOptions="Start"/>
         </StackLayout>
         
-        <Button Grid.Column="2"
+        <Button x:Name="btnSearch"
+                Grid.Column="2"
                 Grid.Row="0"
                 Text="{StaticResource Label_0018}"
                 HeightRequest="50"
@@ -56,7 +58,8 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
             
-            <Entry Text=""
+            <Entry x:Name="eName"
+                   Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -64,14 +67,15 @@
         </StackLayout>
 
         <StackLayout Grid.Column="0"
-             Grid.Row="2"
-             Grid.ColumnSpan="3">
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3">
             <Label Text="{StaticResource Label_0021}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
             
-            <Entry Text=""
+            <Entry x:Name="eInfo1"
+                   Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -79,14 +83,15 @@
         </StackLayout>
 
         <StackLayout Grid.Column="0"
-             Grid.Row="3"
-             Grid.ColumnSpan="3">
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3">
             <Label Text="{StaticResource Label_0022}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
-            
-            <Entry Text=""
+
+            <Entry x:Name="eInfo2"
+                   Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -94,14 +99,15 @@
         </StackLayout>
         
         <StackLayout Grid.Column="0"
-             Grid.Row="4"
-             Grid.ColumnSpan="3">
+                     Grid.Row="4"
+                     Grid.ColumnSpan="3">
             <Label Text="{StaticResource Label_0023}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
-            
-            <Entry Text=""
+
+            <Entry x:Name="eInfo3"
+                   Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -109,29 +115,33 @@
         </StackLayout>
 
         <StackLayout Grid.Column="0"
-             Grid.Row="5"
-             Grid.ColumnSpan="2">
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2">
             <Label Text="{StaticResource Label_0024}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
-            
-            <Entry Text=""
+
+            <Entry x:Name="eQuantity"
+                   Text=""
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
         </StackLayout>
         
-        <Button Grid.Column="2"
+        <Button x:Name="btnSaveQuantity"
+                Grid.Column="2"
                 Grid.Row="5"
                 Text="{StaticResource Label_0025}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
                 SemanticProperties.Hint="{StaticResource Label_0026}"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding SaveQuantityCommand}"/>
         
-        <Button Grid.Column="0"
+        <Button x:Name="btnBack"
+                Grid.Column="0"
                 Grid.Row="6"
                 Text="{StaticResource Label_0027}"
                 HeightRequest="50"
@@ -140,7 +150,8 @@
                 SemanticProperties.Hint="{StaticResource Label_0027}"
                 HorizontalOptions="Center"/>
         
-        <Entry Grid.Column="1"
+        <Entry x:Name="eInventory"
+               Grid.Column="1"
                Grid.Row="6"
                Grid.ColumnSpan="2"
                Text=""
@@ -149,7 +160,8 @@
                HorizontalOptions="End" 
                IsEnabled="False"/>
         
-        <Button Grid.Column="0"
+        <Button x:Name="btnLoadFile"
+                Grid.Column="0"
                 Grid.Row="7"
                 Text="{StaticResource Label_0008}"
                 HeightRequest="50"
@@ -159,7 +171,8 @@
                 HorizontalOptions="Center"
                 Command ="{Binding LoadFileCommand}"/>
 
-        <Button Grid.Column="1"
+        <Button x:Name="btnSave"
+                Grid.Column="1"
                 Grid.Row="7"
                 Text="{StaticResource Label_0025}"
                 HeightRequest="50"
@@ -168,7 +181,8 @@
                 SemanticProperties.Hint="{StaticResource Label_0025}"
                 HorizontalOptions="Center"/>
 
-        <Button Grid.Column="2"
+        <Button x:Name="btnClose"
+                Grid.Column="2"
                 Grid.Row="7"
                 Text="{StaticResource Label_0028}"
                 HeightRequest="50"

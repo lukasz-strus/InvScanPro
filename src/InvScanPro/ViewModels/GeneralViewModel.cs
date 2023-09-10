@@ -17,4 +17,10 @@ public partial class GeneralViewModel : ObservableObject
     {
         //TODO create load file mechanism
     }
+
+    [RelayCommand]
+    async Task SaveQuantity()
+    {
+        //TODO create save quantity mechanism
+    }
 }
