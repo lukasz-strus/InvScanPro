@@ -12,6 +12,8 @@ public partial class GeneralViewModel : ObservableObject
     Inventory inventory;
 
 
+    public string GetInventoryInfo() => $"{Inventory.Date}, {Inventory.Location}";
+
     [RelayCommand]
     async Task LoadFile()
     {

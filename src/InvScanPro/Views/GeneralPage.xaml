@@ -156,7 +156,7 @@
                Grid.Column="1"
                Grid.Row="6"
                Grid.ColumnSpan="2"
-               Text=""
+               Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
                WidthRequest="240"
                FontSize="17"
                HorizontalOptions="End" 
