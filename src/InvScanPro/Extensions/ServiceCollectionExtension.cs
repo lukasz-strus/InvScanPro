@@ -12,6 +12,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<LocationPage>();
         services.AddSingleton<GeneralPage>();
         services.AddSingleton<FilterPage>();
+        services.AddSingleton<ProductDataPage>();
     }
 
     public static void AddViewModels(this IServiceCollection services)
@@ -21,5 +22,6 @@ public static class ServiceCollectionExtension
         services.AddSingleton<LocationViewModel>();
         services.AddSingleton<GeneralViewModel>();
         services.AddSingleton<FilterViewModel>();
+        services.AddSingleton<ProductDataViewModel>();
     }
 }

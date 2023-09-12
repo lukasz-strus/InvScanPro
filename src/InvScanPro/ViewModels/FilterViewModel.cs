@@ -1,13 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Models;
+using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
 public partial class FilterViewModel : ObservableObject
 {
     [ObservableProperty]
-    Inventory? inventory;
+    Inventory inventory;
 
     public FilterViewModel()
     {
@@ -20,7 +21,12 @@ public partial class FilterViewModel : ObservableObject
     [RelayCommand]
     async Task Filter()
     {
-        //TODO create filter mechanism
+        var navigationParameter = new Dictionary<string, object>
+        {
+            { "Inventory", Inventory }
+        };
+
+        await Shell.Current.GoToAsync(nameof(ProductDataPage), navigationParameter);
     }
 
     [RelayCommand]
