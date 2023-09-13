@@ -2,11 +2,137 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InvScanPro.Views.ProductDataPage"
-             Title="ProductDataPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Dane ośrodka">
+    <Grid Margin="10"
+          Padding="10"
+          RowSpacing="50"
+          ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".33*"/>
+            <ColumnDefinition Width=".33*"/>
+            <ColumnDefinition Width=".33*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0"
+                     Grid.Row="0"
+                     Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0017}"
+                   WidthRequest="100"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eSTNumber"
+                   Text=""
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0020}"
+                   WidthRequest="100"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eName"
+                   Text=""
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0021}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eInfo1"
+                   Text=""
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3">
+            <Label Text="{StaticResource Label_0022}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eInfo2"
+                   Text=""
+                   WidthRequest="320"
+                   FontSize="17"
+                   HorizontalOptions="Start" 
+                   IsEnabled="False"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2">
+            <Label Text="{StaticResource Label_0024}"
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="eQuantity"
+                   Text=""
+                   WidthRequest="150"
+                   FontSize="17"
+                   HorizontalOptions="Start"/>
+        </StackLayout>
+
+        <Entry x:Name="eInventory"
+               Grid.Column="0"
+               Grid.Row="5"
+               Grid.ColumnSpan="3"               
+               WidthRequest="320"
+               FontSize="17"
+               Text="{Binding Inventory, Converter={StaticResource FullInventoryConverter}}"
+               HorizontalOptions="Start" 
+               IsEnabled="False"/>
+
+        <Button x:Name="btnBack"
+                Grid.Column="0"
+                Grid.Row="6"
+                Text="{StaticResource Label_0027}"
+                HeightRequest="50"
+                WidthRequest="100"
+                FontSize="16"/>
+
+        <Button x:Name="btnPrevious"
+                Grid.Column="1"
+                Grid.Row="6"
+                Text="Poprzedni"
+                HeightRequest="50"
+                WidthRequest="110"
+                FontSize="16"/>
+
+        <Button x:Name="btnNext"
+                Grid.Column="2"
+                Grid.Row="6"
+                Text="Następny"
+                HeightRequest="50"
+                WidthRequest="110"
+                FontSize="16"/>
+
+    </Grid>
 </ContentPage>
