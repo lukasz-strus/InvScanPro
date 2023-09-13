@@ -35,9 +35,12 @@
 <img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/de217771-5b6a-4944-a53a-8ecb6ba2690f"/>
 </p>
 
-
-
 ## <p align="center"> FilterPage </p>
 <p align="center">
 <img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/857ae297-6aa0-483a-ab3e-f4cf4783954e"/>
+</p>
+
+## <p align="center"> ProductDataPage </p>
+<p align="center">
+<img src="https://github.com/lukasz-strus/InvScanPro/assets/61932823/1b456532-f340-4ef4-b882-592a0e8ad69e"/>
 </p>
