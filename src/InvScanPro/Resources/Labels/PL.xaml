@@ -39,6 +39,9 @@
     <x:String x:Key="Label_0034">Wpisz nr. pomieszczenia</x:String>
     <x:String x:Key="Label_0035">Filtruj</x:String>
     <x:String x:Key="Label_0036">Wróć</x:String>
+    <x:String x:Key="Label_0037">Dane ośrodka</x:String>
+    <x:String x:Key="Label_0038">Poprzedni</x:String>
+    <x:String x:Key="Label_0039">Następny</x:String>
 
 
 </ResourceDictionary>
