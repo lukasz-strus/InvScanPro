@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.Views.ProductDataPage"
+             x:DataType="vm:ProductDataViewModel"
              Title="{StaticResource Label_0037}">
     <Grid Margin="10"
           Padding="10"
@@ -116,7 +118,8 @@
                 Text="{StaticResource Label_0027}"
                 HeightRequest="50"
                 WidthRequest="100"
-                FontSize="16"/>
+                FontSize="16"
+                Command="{Binding BackCommand}"/>
 
         <Button x:Name="btnPrevious"
                 Grid.Column="1"
@@ -124,7 +127,8 @@
                 Text="{StaticResource Label_0038}"
                 HeightRequest="50"
                 WidthRequest="110"
-                FontSize="16"/>
+                FontSize="16"
+                Command="{Binding PreviousCommand}"/>
 
         <Button x:Name="btnNext"
                 Grid.Column="2"
@@ -132,7 +136,8 @@
                 Text="{StaticResource Label_0039}"
                 HeightRequest="50"
                 WidthRequest="110"
-                FontSize="16"/>
+                FontSize="16"
+                Command="{Binding NextCommand}"/>
 
     </Grid>
 </ContentPage>
