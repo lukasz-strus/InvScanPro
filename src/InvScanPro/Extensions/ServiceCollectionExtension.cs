@@ -8,20 +8,22 @@ public static class ServiceCollectionExtension
     public static void AddPages(this IServiceCollection services)
     {
         services.AddSingleton<MainPage>();
-        services.AddSingleton<DatePage>();
-        services.AddSingleton<LocationPage>();
-        services.AddSingleton<GeneralPage>();
-        services.AddSingleton<FilterPage>();
-        services.AddSingleton<ProductDataPage>();
+
+        services.AddTransient<DatePage>();
+        services.AddTransient<LocationPage>();
+        services.AddTransient<GeneralPage>();
+        services.AddTransient<FilterPage>();
+        services.AddTransient<ProductDataPage>();
     }
 
     public static void AddViewModels(this IServiceCollection services)
     {
         services.AddSingleton<MainViewModel>();
-        services.AddSingleton<DateViewModel>();
-        services.AddSingleton<LocationViewModel>();
-        services.AddSingleton<GeneralViewModel>();
-        services.AddSingleton<FilterViewModel>();
-        services.AddSingleton<ProductDataViewModel>();
+
+        services.AddTransient<DateViewModel>();
+        services.AddTransient<LocationViewModel>();
+        services.AddTransient<GeneralViewModel>();
+        services.AddTransient<FilterViewModel>();
+        services.AddTransient<ProductDataViewModel>();
     }
 }

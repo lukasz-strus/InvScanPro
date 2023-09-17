@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InvScanPro.Views.ProductDataPage"
-             Title="Dane ośrodka">
+             Title="{StaticResource Label_0037}">
     <Grid Margin="10"
           Padding="10"
           RowSpacing="50"
@@ -121,7 +121,7 @@
         <Button x:Name="btnPrevious"
                 Grid.Column="1"
                 Grid.Row="6"
-                Text="Poprzedni"
+                Text="{StaticResource Label_0038}"
                 HeightRequest="50"
                 WidthRequest="110"
                 FontSize="16"/>
@@ -129,7 +129,7 @@
         <Button x:Name="btnNext"
                 Grid.Column="2"
                 Grid.Row="6"
-                Text="Następny"
+                Text="{StaticResource Label_0039}"
                 HeightRequest="50"
                 WidthRequest="110"
                 FontSize="16"/>
