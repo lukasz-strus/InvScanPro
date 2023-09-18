@@ -1,4 +1,5 @@
-﻿using InvScanPro.ViewModels;
+﻿using InvScanPro.Services;
+using InvScanPro.ViewModels;
 using InvScanPro.Views;
 
 namespace InvScanPro.Extensions;
@@ -25,5 +26,10 @@ public static class ServiceCollectionExtension
         services.AddTransient<GeneralViewModel>();
         services.AddTransient<FilterViewModel>();
         services.AddTransient<ProductDataViewModel>();
+    }
+
+    public static void AddServices(this IServiceCollection services)
+    {
+        services.AddScoped<ICsvFileService, CsvFileService>();
     }
 }

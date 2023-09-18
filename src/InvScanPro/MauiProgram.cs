@@ -19,6 +19,7 @@ public static class MauiProgram
 
         builder.Services.AddPages();
         builder.Services.AddViewModels();
+        builder.Services.AddServices();
 
         return builder.Build();
     }
