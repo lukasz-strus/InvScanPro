@@ -12,7 +12,6 @@ public interface ICsvFileService
 
 public class CsvFileService : ICsvFileService
 {
-    //TODO add Yes/No dialog to check is file in cache should be replaced
     public async Task<List<InventoryItem>> LoadCsvFileAsync()
     {
         var records = new List<InventoryItem>();
