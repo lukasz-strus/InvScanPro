@@ -7,8 +7,7 @@ namespace InvScanPro.ViewModels;
 
 public partial class FilterViewModel : ObservableObject
 {
-    [ObservableProperty]
-    Inventory inventory;
+    [ObservableProperty] private Inventory inventory;
 
     public FilterViewModel()
     {
@@ -30,7 +29,7 @@ public partial class FilterViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task Back()
+    private async Task Back()
     {
         //TODO create back mechanism
     }

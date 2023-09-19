@@ -7,44 +7,42 @@ namespace InvScanPro.ViewModels;
 [QueryProperty(nameof(Inventory), "Inventory")]
 public partial class GeneralViewModel : ObservableObject
 {
-    [ObservableProperty]
-    Inventory? inventory;
+    [ObservableProperty] Inventory? inventory;
 
-    [ObservableProperty]
-    Product? scannedProduct;
+    [ObservableProperty] private Product? scannedProduct;
 
     [RelayCommand]
-    async Task LoadFile()
+    private async Task LoadFile()
     {
         //TODO create load file mechanism
     }
 
     [RelayCommand]
-    async Task SaveQuantity()
+    private async Task SaveQuantity()
     {
         //TODO create save quantity mechanism
     }
 
     [RelayCommand]
-    async Task Search()
+    private async Task Search()
     {
         //TODO create search mechanism
     }
 
     [RelayCommand]
-    async Task Back()
+    private async Task Back()
     {
         //Tdo create back mechanism
     }
 
     [RelayCommand]
-    async Task Save()
+    private async Task Save()
     {
         //TODO create save mechanism
     }
 
     [RelayCommand]
-    async Task Close()
+    private async Task Close()
     {
         //TODO create close mechanism
     }
