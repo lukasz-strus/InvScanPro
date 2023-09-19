@@ -1,25 +1,26 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CsvHelper;
-using CsvHelper.Configuration;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
 using InvScanPro.Services;
 using InvScanPro.Views;
-using System.Globalization;
-using System.Runtime.Caching;
 
 namespace InvScanPro.ViewModels;
 
 public partial class DateViewModel : ObservableObject
 {
-    private readonly ICsvFileService _csvFileService;
-
     [ObservableProperty]
-    DateTime date = DateTime.Now; // TODO get date from file
+    DateTime date;
 
-    public DateViewModel(ICsvFileService csvFileService)
+    private readonly ICsvFileService _csvFileService;
+    private readonly ICacheService _cacheService;
+
+    public DateViewModel(ICsvFileService csvFileService, ICacheService cacheService)
     {
         _csvFileService = csvFileService;
+        _cacheService = cacheService;
+
+        Date = CacheHelper.GetDateFromCache(_cacheService);
     }
 
     [RelayCommand]
@@ -39,9 +40,13 @@ public partial class DateViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task LoadFile() //TODO move to service
+    async Task LoadFile()
     {
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
-        
+
+        _cacheService.SetInventoryItems(inventoryItems);
+
+        Date = CacheHelper.GetDateFromCache(_cacheService);
     }
+
 }

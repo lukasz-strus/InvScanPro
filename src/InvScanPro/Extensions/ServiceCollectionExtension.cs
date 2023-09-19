@@ -31,5 +31,6 @@ public static class ServiceCollectionExtension
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<ICsvFileService, CsvFileService>();
+        services.AddSingleton<ICacheService, CacheService>();
     }
 }
