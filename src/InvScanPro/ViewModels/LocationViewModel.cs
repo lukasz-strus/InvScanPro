@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
+using InvScanPro.Services;
 using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
@@ -8,16 +10,30 @@ namespace InvScanPro.ViewModels;
 [QueryProperty(nameof(Inventory), "Inventory")]
 public partial class LocationViewModel : ObservableObject
 {
-    [ObservableProperty]
-    Inventory inventory;
+    [ObservableProperty] private Inventory? _inventory;
+    [ObservableProperty] private string? _location;
 
-    [ObservableProperty]
-    string location;
+    private readonly ICsvFileService _csvFileService;
+    private readonly IStorageService _storageService;
+
+    public LocationViewModel(
+        ICsvFileService csvFileService,
+        IStorageService storageService)
+    {
+        _csvFileService = csvFileService;
+        _storageService = storageService;
+    }
 
     [RelayCommand]
-    async Task NavigateToGeneralPage()
+    private async Task NavigateToGeneralPage()
     {
-        Inventory.Location = Location;
+        if (string.IsNullOrEmpty(Location))
+        {
+            await DisplayHelper.DisplayError("Label_0040", "Label_0041");
+            return;
+        }
+
+        Inventory!.Location = Location;
 
         var navigationParameter = new Dictionary<string, object>
         {
@@ -25,13 +41,23 @@ public partial class LocationViewModel : ObservableObject
         };
 
         await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
-
-        //TODO check location value (not null)
     }
 
+
     [RelayCommand]
-    async Task LoadFile()
+    private async Task LoadFile()
     {
-        //TODO create load file mechanism
+        if (!_storageService.IsInventoryItemsEmpty())
+        {
+            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
+            if (!result) return;
+        }
+
+        var inventoryItems = await _csvFileService.LoadCsvFileAsync();
+
+        _storageService.SetInventoryItems(inventoryItems);
+
+        Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
     }
 }

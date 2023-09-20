@@ -7,13 +7,13 @@ namespace InvScanPro.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [RelayCommand]
-    async Task NavigateToDataPage()
+    private async Task NavigateToDataPage()
     {
         await Shell.Current.GoToAsync(nameof(DatePage));
     }
 
     [RelayCommand]
-    async Task NavigateToFilterPage()
+    private async Task NavigateToFilterPage()
     {
         await Shell.Current.GoToAsync(nameof(FilterPage));
     }

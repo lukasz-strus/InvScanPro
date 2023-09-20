@@ -42,6 +42,12 @@
     <x:String x:Key="Label_0037">Dane ośrodka</x:String>
     <x:String x:Key="Label_0038">Poprzedni</x:String>
     <x:String x:Key="Label_0039">Następny</x:String>
+    <x:String x:Key="Label_0040">Błąd</x:String>
+    <x:String x:Key="Label_0041">Nie podano numeru pomieszczenia</x:String>
+    <x:String x:Key="Label_0042">Uwaga</x:String>
+    <x:String x:Key="Label_0043">Otwarcie nowego pliku spowoduje wykasowanie aktualnej inwentaryzacji. Czy chcesz kontynuować?</x:String>
+    <x:String x:Key="Label_0044">Tak</x:String>
+    <x:String x:Key="Label_0045">Nie</x:String>
 
 
 </ResourceDictionary>

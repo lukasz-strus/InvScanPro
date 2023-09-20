@@ -1,17 +1,31 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
+using InvScanPro.Services;
 using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
 public partial class DateViewModel : ObservableObject
 {
-    [ObservableProperty]
-    DateTime date = DateTime.Now; // TODO get date from file
+    [ObservableProperty] private DateTime date;
+
+    private readonly ICsvFileService _csvFileService;
+    private readonly IStorageService _storageService;
+
+    public DateViewModel(
+        ICsvFileService csvFileService, 
+        IStorageService storageService)
+    {
+        _csvFileService = csvFileService;
+        _storageService = storageService;
+
+        Date = CacheHelper.GetDateFromCache(_storageService);
+    }
 
     [RelayCommand]
-    async Task NavigateToLocationPage()
+    private async Task NavigateToLocationPage()
     {
         var inventory = new Inventory()
         {
@@ -27,8 +41,19 @@ public partial class DateViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task LoadFile()
+    private async Task LoadFile()
     {
-        //TODO create load file mechanism
+        if (!_storageService.IsInventoryItemsEmpty())
+        {
+            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
+            if (!result) return;            
+        }
+
+        var inventoryItems = await _csvFileService.LoadCsvFileAsync();
+
+        _storageService.SetInventoryItems(inventoryItems);
+
+        Date = CacheHelper.GetDateFromCache(_storageService);
     }
 }
