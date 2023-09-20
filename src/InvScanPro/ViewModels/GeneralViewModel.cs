@@ -1,21 +1,44 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
+using InvScanPro.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace InvScanPro.ViewModels;
 
 [QueryProperty(nameof(Inventory), "Inventory")]
 public partial class GeneralViewModel : ObservableObject
 {
-    [ObservableProperty] Inventory? inventory;
+    [ObservableProperty] private Inventory? _inventory;
+    [ObservableProperty] private Product? _scannedProduct;
 
-    [ObservableProperty] private Product? scannedProduct;
+    private readonly IStorageService _storageService;
+    private readonly ICsvFileService _csvFileService;
+
+    public GeneralViewModel(
+        IStorageService storageService, 
+        ICsvFileService csvFileService)
+    {
+        _storageService = storageService;
+        _csvFileService = csvFileService;
+    }
 
     [RelayCommand]
     private async Task LoadFile()
     {
+        if (!_storageService.IsInventoryItemsEmpty())
+        {
+            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
-        //TODO create load file mechanism
+            if (!result) return;
+        }
+
+        var inventoryItems = await _csvFileService.LoadCsvFileAsync();
+
+        _storageService.SetInventoryItems(inventoryItems);
+
+        Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
     }
 
     [RelayCommand]
