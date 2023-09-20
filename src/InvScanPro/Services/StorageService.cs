@@ -2,7 +2,7 @@
 
 namespace InvScanPro.Services;
 
-public interface ICacheService
+public interface IStorageService
 {
     void ClearInventoryItems();
     List<InventoryItem> GetInventoryItems();
@@ -10,7 +10,7 @@ public interface ICacheService
     bool IsInventoryItemsEmpty();
 }
 
-public class CacheService : ICacheService
+public class StorageService : IStorageService
 {
     private List<InventoryItem> _inventoryItems = new();
 

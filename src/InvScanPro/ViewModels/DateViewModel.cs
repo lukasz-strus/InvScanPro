@@ -12,14 +12,16 @@ public partial class DateViewModel : ObservableObject
     [ObservableProperty] private DateTime date;
 
     private readonly ICsvFileService _csvFileService;
-    private readonly ICacheService _cacheService;
+    private readonly IStorageService _storageService;
 
-    public DateViewModel(ICsvFileService csvFileService, ICacheService cacheService)
+    public DateViewModel(
+        ICsvFileService csvFileService, 
+        IStorageService storageService)
     {
         _csvFileService = csvFileService;
-        _cacheService = cacheService;
+        _storageService = storageService;
 
-        Date = CacheHelper.GetDateFromCache(_cacheService);
+        Date = CacheHelper.GetDateFromCache(_storageService);
     }
 
     [RelayCommand]
@@ -41,7 +43,7 @@ public partial class DateViewModel : ObservableObject
     [RelayCommand]
     private async Task LoadFile()
     {
-        if (!_cacheService.IsInventoryItemsEmpty())
+        if (!_storageService.IsInventoryItemsEmpty())
         {
             bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
@@ -50,8 +52,8 @@ public partial class DateViewModel : ObservableObject
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
-        _cacheService.SetInventoryItems(inventoryItems);
+        _storageService.SetInventoryItems(inventoryItems);
 
-        Date = CacheHelper.GetDateFromCache(_cacheService);
+        Date = CacheHelper.GetDateFromCache(_storageService);
     }
 }
