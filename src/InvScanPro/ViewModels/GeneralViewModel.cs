@@ -14,6 +14,7 @@ public partial class GeneralViewModel : ObservableObject
     [RelayCommand]
     private async Task LoadFile()
     {
+
         //TODO create load file mechanism
     }
 
