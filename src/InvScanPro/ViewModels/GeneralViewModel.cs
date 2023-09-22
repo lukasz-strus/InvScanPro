@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Helpers;
 using InvScanPro.Models;
 using InvScanPro.Services;
+using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
@@ -69,7 +70,12 @@ public partial class GeneralViewModel : ObservableObject
 
             if(result)
             {
-                //TODO navigate to add product data page
+                var navigationParameter = new Dictionary<string, object>
+                {
+                    { "Product", ScannedProduct }
+                };
+
+                await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);
                 return;
             }
             else
