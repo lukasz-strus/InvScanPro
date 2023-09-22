@@ -8,6 +8,7 @@ public interface IStorageService
     List<InventoryItem> GetInventoryItems();
     void SetInventoryItems(List<InventoryItem> inventoryItems);
     bool IsInventoryItemsEmpty();
+    InventoryItem? GetInventoryItem(string barcode);
 }
 
 public class StorageService : IStorageService
@@ -22,4 +23,8 @@ public class StorageService : IStorageService
 
     public bool IsInventoryItemsEmpty() => _inventoryItems.Count == 0;
 
+    public InventoryItem? GetInventoryItem(string barcode)
+    {
+        return _inventoryItems.ToList().FirstOrDefault(x => x.Barcode == barcode);
+    }
 }

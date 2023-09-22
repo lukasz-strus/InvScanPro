@@ -48,6 +48,9 @@
     <x:String x:Key="Label_0043">Otwarcie nowego pliku spowoduje wykasowanie aktualnej inwentaryzacji. Czy chcesz kontynuować?</x:String>
     <x:String x:Key="Label_0044">Tak</x:String>
     <x:String x:Key="Label_0045">Nie</x:String>
+    <x:String x:Key="Label_0046">Nie podano numeru ST.</x:String>
+    <x:String x:Key="Label_0047">Nie wczytano pliku z bazą danych.</x:String>
+    <x:String x:Key="Label_0048">Nie znaleziono środka w bazie danych.</x:String>
 
 
 </ResourceDictionary>

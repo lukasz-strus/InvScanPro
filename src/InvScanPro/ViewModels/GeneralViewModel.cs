@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using InvScanPro.Helpers;
 using InvScanPro.Models;
 using InvScanPro.Services;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace InvScanPro.ViewModels;
 
@@ -11,7 +10,7 @@ namespace InvScanPro.ViewModels;
 public partial class GeneralViewModel : ObservableObject
 {
     [ObservableProperty] private Inventory? _inventory;
-    [ObservableProperty] private Product? _scannedProduct;
+    [ObservableProperty] private Product _scannedProduct = new();
 
     private readonly IStorageService _storageService;
     private readonly ICsvFileService _csvFileService;
@@ -50,7 +49,36 @@ public partial class GeneralViewModel : ObservableObject
     [RelayCommand]
     private async Task Search()
     {
-        //TODO create search mechanism
+        if(string.IsNullOrEmpty(ScannedProduct!.STNumber))
+        {
+            await DisplayHelper.DisplayError("Label_0040", "Label_0046");
+            return;
+        };
+
+        if(_storageService.IsInventoryItemsEmpty())
+        {
+            await DisplayHelper.DisplayError("Label_0040", "Label_0047");
+            return;
+        }
+
+        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber);
+
+        if(inventoryItem is null)
+        {
+            await DisplayHelper.DisplayError("Label_0040", "Label_0048");
+            return;
+        }
+
+        ScannedProduct = new()
+        {
+            STNumber = inventoryItem.Barcode,
+            Quantity = inventoryItem.Count,
+            Name = inventoryItem.Name,
+            Info1 = inventoryItem.Info1,
+            Info2 = inventoryItem.Info2,
+            Info3 = inventoryItem.Info3
+        };
+
     }
 
     [RelayCommand]
