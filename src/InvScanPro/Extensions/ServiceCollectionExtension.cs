@@ -15,6 +15,7 @@ public static class ServiceCollectionExtension
         services.AddTransient<GeneralPage>();
         services.AddTransient<FilterPage>();
         services.AddTransient<ProductDataPage>();
+        services.AddTransient<AddProductPage>();
     }
 
     public static void AddViewModels(this IServiceCollection services)
@@ -26,6 +27,7 @@ public static class ServiceCollectionExtension
         services.AddTransient<GeneralViewModel>();
         services.AddTransient<FilterViewModel>();
         services.AddTransient<ProductDataViewModel>();
+        services.AddTransient<AddProductViewModel>();
     }
 
     public static void AddServices(this IServiceCollection services)
