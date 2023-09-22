@@ -65,8 +65,17 @@ public partial class GeneralViewModel : ObservableObject
 
         if(inventoryItem is null)
         {
-            await DisplayHelper.DisplayError("Label_0040", "Label_0048");
-            return;
+            var result = await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045");
+
+            if(result)
+            {
+                //TODO navigate to add product data page
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
 
         ScannedProduct = new()
