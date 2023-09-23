@@ -4,6 +4,7 @@ using InvScanPro.Helpers;
 using InvScanPro.Models;
 using InvScanPro.Services;
 using InvScanPro.Views;
+using CommunityToolkit.Maui.Views;
 
 namespace InvScanPro.ViewModels;
 
@@ -23,6 +24,11 @@ public partial class GeneralViewModel : BaseViewModel
         SetCaption("Label_0016");
     }
 
+    public void UpdateSTNumber(string stNumber)
+    {
+        ScannedProduct.STNumber = stNumber;
+    }
+
     [RelayCommand]
     private async Task LoadFile()
     {
@@ -38,19 +44,6 @@ public partial class GeneralViewModel : BaseViewModel
         Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
 
         SetCaption("Label_0016");
-    }
-
-    [RelayCommand]
-    private async Task FocusedSTNumber()
-    {
-        bool result = await ShouldUseQRScanner();
-        if (!result) return;
-
-    }
-
-    private static async Task<bool> ShouldUseQRScanner()
-    {
-        return await DisplayHelper.DisplayAlert("Label_0051", "Label_0052", "Label_0044", "Label_0045");
     }
 
     [RelayCommand]
