@@ -9,17 +9,17 @@
         <VerticalStackLayout
             Spacing="30"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Start">
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                Source="logo.png"
+                SemanticProperties.Description="InvScanPro"
+                HeightRequest="400"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
 
             <Button Text="{StaticResource Label_0001}"
                     HeightRequest="60"
                     WidthRequest="200"
-                    FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0002}"
                     HorizontalOptions="Center"
                     Command="{Binding NavigateToDataPageCommand}"/>
@@ -27,7 +27,6 @@
             <Button Text="{StaticResource Label_0003}"
                     HeightRequest="60"
                     WidthRequest="200"
-                    FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0004}"
                     HorizontalOptions="Center"
                     Command="{Binding NavigateToFilterPageCommand}"/>

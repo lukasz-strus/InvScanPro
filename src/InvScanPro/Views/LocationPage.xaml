@@ -13,22 +13,21 @@
 
             <Label Text="{StaticResource Label_0010}"
                    HeightRequest="60"
-                   WidthRequest="215"
+                   WidthRequest="280"
                    Margin="0,30,0,0"
-                   FontSize="18"
+                   FontSize="19"
                    HorizontalOptions="Center"/>
 
             <Entry Placeholder="{StaticResource Label_0015}"
                    Text="{Binding Location}"
                    HeightRequest="60"
-                   WidthRequest="200"
-                   FontSize="18"
+                   WidthRequest="280"
+                   FontSize="19"
                    HorizontalOptions="Center"/>
 
             <Button Text="{StaticResource Label_0006}"
                     HeightRequest="60"
                     WidthRequest="200" 
-                    FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0011}"
                     HorizontalOptions="Center"
                     Command="{Binding NavigateToGeneralPageCommand}"/>
@@ -36,7 +35,6 @@
             <Button Text="{StaticResource Label_0008}"
                     HeightRequest="60"
                     WidthRequest="200" 
-                    FontSize="18"
                     SemanticProperties.Hint="{StaticResource Label_0009}"
                     HorizontalOptions="Center"
                     Command ="{Binding LoadFileCommand}"/>
