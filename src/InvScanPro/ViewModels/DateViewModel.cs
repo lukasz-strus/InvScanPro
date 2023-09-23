@@ -7,23 +7,19 @@ using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
-public partial class DateViewModel : ObservableObject
+public partial class DateViewModel : BaseViewModel
 {
     [ObservableProperty] private DateTime _date;
-    [ObservableProperty] private string? _caption;
 
     private readonly ICsvFileService _csvFileService;
-    private readonly IStorageService _storageService;
 
     public DateViewModel(
         ICsvFileService csvFileService, 
-        IStorageService storageService)
+        IStorageService storageService) : base(storageService)
     {
         _csvFileService = csvFileService;
-        _storageService = storageService;
 
-        SetDate();
-        SetCaption();
+        SetDate();        
     }
 
     [RelayCommand]
@@ -62,12 +58,4 @@ public partial class DateViewModel : ObservableObject
 
     private void SetDate() => Date = CacheHelper.GetDateFromCache(_storageService);
 
-    private void SetCaption()
-    {        
-        Application.Current!.Resources.TryGetValue("Label_0013", out object title);
-
-        var items = _storageService.GetInventoryItems();
-
-        Caption = items.Count == 0 ? $"{title}" : $"{title} {items[0].Countingnum}";
-    }
 }

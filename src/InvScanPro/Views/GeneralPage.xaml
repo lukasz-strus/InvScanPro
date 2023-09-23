@@ -4,7 +4,7 @@
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.Views.GeneralPage"
              x:DataType="vm:GeneralViewModel"
-             Title="{StaticResource Label_0016}">
+             Title="{Binding Caption}">
     <Grid Margin="10"
           Padding="10"
           RowSpacing="50"

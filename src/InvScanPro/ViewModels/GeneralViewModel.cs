@@ -8,19 +8,17 @@ using InvScanPro.Views;
 namespace InvScanPro.ViewModels;
 
 [QueryProperty(nameof(Inventory), "Inventory")]
-public partial class GeneralViewModel : ObservableObject
+public partial class GeneralViewModel : BaseViewModel
 {
     [ObservableProperty] private Inventory? _inventory;
     [ObservableProperty] private Product _scannedProduct = new();
 
-    private readonly IStorageService _storageService;
     private readonly ICsvFileService _csvFileService;
 
     public GeneralViewModel(
         IStorageService storageService, 
-        ICsvFileService csvFileService)
+        ICsvFileService csvFileService) : base(storageService)
     {
-        _storageService = storageService;
         _csvFileService = csvFileService;
     }
 
@@ -39,6 +37,8 @@ public partial class GeneralViewModel : ObservableObject
         _storageService.SetInventoryItems(inventoryItems);
 
         Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
+
+        SetCaption();
     }
 
     [RelayCommand]
