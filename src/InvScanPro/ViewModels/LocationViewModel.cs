@@ -20,6 +20,7 @@ public partial class LocationViewModel : BaseViewModel
         IStorageService storageService) : base(storageService)
     {
         _csvFileService = csvFileService;
+        SetCaption("Label_0014");
     }
 
     [RelayCommand]
@@ -27,7 +28,7 @@ public partial class LocationViewModel : BaseViewModel
     {
         if (string.IsNullOrEmpty(Location))
         {
-            await DisplayHelper.DisplayError("Label_0040", "Label_0041");
+            await ShowEmptyLocationError();
             return;
         }
 
@@ -42,14 +43,13 @@ public partial class LocationViewModel : BaseViewModel
     }
 
 
+
     [RelayCommand]
     private async Task LoadFile()
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
-
-            if (!result) return;
+            if (!ShouldRemoveExistingDatabase().Result) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
@@ -58,6 +58,11 @@ public partial class LocationViewModel : BaseViewModel
 
         Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
 
-        SetCaption();
+        SetCaption("Label_0014");
     }
+    private static async Task ShowEmptyLocationError()
+        => await DisplayHelper.DisplayError("Label_0040", "Label_0041");
+
+    private static async Task<bool> ShouldRemoveExistingDatabase()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 }

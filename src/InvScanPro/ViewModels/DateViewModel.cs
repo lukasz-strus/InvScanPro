@@ -19,6 +19,7 @@ public partial class DateViewModel : BaseViewModel
     {
         _csvFileService = csvFileService;
 
+        SetCaption("Label_0013");
         SetDate();        
     }
 
@@ -43,9 +44,7 @@ public partial class DateViewModel : BaseViewModel
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
-
-            if (!result) return;
+            if (!ShouldRemoveExistingDatabase().Result) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
@@ -53,9 +52,12 @@ public partial class DateViewModel : BaseViewModel
         _storageService.SetInventoryItems(inventoryItems);
 
         SetDate();
-        SetCaption();
+        SetCaption("Label_0013");
     }
 
     private void SetDate() => Date = CacheHelper.GetDateFromCache(_storageService);
+
+    private static async Task<bool> ShouldRemoveExistingDatabase()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
 }

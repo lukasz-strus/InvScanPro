@@ -20,6 +20,7 @@ public partial class GeneralViewModel : BaseViewModel
         ICsvFileService csvFileService) : base(storageService)
     {
         _csvFileService = csvFileService;
+        SetCaption("Label_0016");
     }
 
     [RelayCommand]
@@ -27,9 +28,7 @@ public partial class GeneralViewModel : BaseViewModel
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
-
-            if (!result) return;
+            if (!ShouldRemoveExistingDatabase().Result) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
@@ -38,7 +37,7 @@ public partial class GeneralViewModel : BaseViewModel
 
         Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
 
-        SetCaption();
+        SetCaption("Label_0016");
     }
 
     [RelayCommand]
@@ -50,53 +49,31 @@ public partial class GeneralViewModel : BaseViewModel
     [RelayCommand]
     private async Task Search()
     {
-        if(string.IsNullOrEmpty(ScannedProduct!.STNumber))
+        if (string.IsNullOrEmpty(ScannedProduct!.STNumber))
         {
-            await DisplayHelper.DisplayError("Label_0040", "Label_0046");
+            await ShowEmptySTNumberError();
             return;
         };
 
-        if(_storageService.IsInventoryItemsEmpty())
+        if (_storageService.IsInventoryItemsEmpty())
         {
-            await DisplayHelper.DisplayError("Label_0040", "Label_0047");
+            await ShowEmptyInventoryItemsError();
             return;
         }
 
         var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber);
 
-        if(inventoryItem is null)
+        if (inventoryItem is null)
         {
-            var result = await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045");
+            if (!ShouldAddNewItem().Result) return;
 
-            if(result)
-            {
-                var navigationParameter = new Dictionary<string, object>
-                {
-                    { "Product", ScannedProduct },
-                    { "Inventory", Inventory! }
-                };
-
-                await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);
-                return;
-            }
-            else
-            {
-                return;
-            }
+            await NavigateToInventoryItemCreator();
+            return;
         }
 
-        ScannedProduct = new()
-        {
-            STNumber = inventoryItem.Barcode,
-            Quantity = inventoryItem.Count,
-            Name = inventoryItem.Name,
-            Info1 = inventoryItem.Info1,
-            Info2 = inventoryItem.Info2,
-            Info3 = inventoryItem.Info3
-        };
-
+        SetScannedProduct(inventoryItem);
     }
-
+    
     [RelayCommand]
     private async Task Back()
     {
@@ -114,4 +91,39 @@ public partial class GeneralViewModel : BaseViewModel
     {
         //TODO create close mechanism
     }
+
+    private static async Task<bool> ShouldRemoveExistingDatabase()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
+    private void SetScannedProduct(InventoryItem inventoryItem)
+        => ScannedProduct = new()
+        {
+            STNumber = inventoryItem.Barcode,
+            Quantity = inventoryItem.Count,
+            Name = inventoryItem.Name,
+            Info1 = inventoryItem.Info1,
+            Info2 = inventoryItem.Info2,
+            Info3 = inventoryItem.Info3
+        };
+
+    private async Task NavigateToInventoryItemCreator()
+    {
+        var navigationParameter = new Dictionary<string, object>
+            {
+                { "Product", ScannedProduct },
+                { "Inventory", Inventory! }
+            };
+
+        await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);
+    }
+
+    private static async Task ShowEmptyInventoryItemsError()
+        => await DisplayHelper.DisplayError("Label_0040", "Label_0047");
+
+    private static async Task ShowEmptySTNumberError()
+        => await DisplayHelper.DisplayError("Label_0040", "Label_0046");
+
+    private static async Task<bool> ShouldAddNewItem()
+        => await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045");
+
 }

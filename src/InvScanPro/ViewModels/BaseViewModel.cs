@@ -13,11 +13,10 @@ public partial class BaseViewModel : ObservableObject
     public BaseViewModel(IStorageService storageService)
     {
         _storageService = storageService;
-        SetCaption();
     }
-    protected void SetCaption()
+    protected void SetCaption(string label)
     {
-        Application.Current!.Resources.TryGetValue("Label_0013", out object title);
+        Application.Current!.Resources.TryGetValue(label, out object title);
 
         var items = _storageService.GetInventoryItems();
 

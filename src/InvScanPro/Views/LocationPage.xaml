@@ -33,6 +33,7 @@
                     Command="{Binding NavigateToGeneralPageCommand}"/>
 
             <Button Text="{StaticResource Label_0008}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
                     HeightRequest="60"
                     WidthRequest="200" 
                     SemanticProperties.Hint="{StaticResource Label_0009}"
