@@ -53,6 +53,8 @@
     <x:String x:Key="Label_0048">Nie znaleziono środka w bazie danych. Czy dodać” nowy środek?</x:String>
     <x:String x:Key="Label_0049">Dodaj nowy środek</x:String>
     <x:String x:Key="Label_0050">Zapisać nowy rekord?</x:String>
+    <x:String x:Key="Label_0051">STNumber</x:String>
+    <x:String x:Key="Label_0052">Czy chcesz użyć QR Scanner?</x:String>
 
 
 </ResourceDictionary>

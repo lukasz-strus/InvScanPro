@@ -41,6 +41,19 @@ public partial class GeneralViewModel : BaseViewModel
     }
 
     [RelayCommand]
+    private async Task FocusedSTNumber()
+    {
+        bool result = await ShouldUseQRScanner();
+        if (!result) return;
+
+    }
+
+    private static async Task<bool> ShouldUseQRScanner()
+    {
+        return await DisplayHelper.DisplayAlert("Label_0051", "Label_0052", "Label_0044", "Label_0045");
+    }
+
+    [RelayCommand]
     private async Task SaveQuantity()
     {
         //TODO create save quantity mechanism
@@ -65,7 +78,8 @@ public partial class GeneralViewModel : BaseViewModel
 
         if (inventoryItem is null)
         {
-            if (!ShouldAddNewItem().Result) return;
+            var result = await ShouldAddNewItem();
+            if (!result) return;
 
             await NavigateToInventoryItemCreator();
             return;
