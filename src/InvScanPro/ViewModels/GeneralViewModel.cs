@@ -72,7 +72,8 @@ public partial class GeneralViewModel : ObservableObject
             {
                 var navigationParameter = new Dictionary<string, object>
                 {
-                    { "Product", ScannedProduct }
+                    { "Product", ScannedProduct },
+                    { "Inventory", Inventory! }
                 };
 
                 await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);

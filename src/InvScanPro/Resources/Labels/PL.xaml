@@ -52,6 +52,7 @@
     <x:String x:Key="Label_0047">Nie wczytano pliku z bazą danych.</x:String>
     <x:String x:Key="Label_0048">Nie znaleziono środka w bazie danych. Czy dodać” nowy środek?</x:String>
     <x:String x:Key="Label_0049">Dodaj nowy środek</x:String>
+    <x:String x:Key="Label_0050">Zapisać nowy rekord?</x:String>
 
 
 </ResourceDictionary>
