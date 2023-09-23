@@ -53,7 +53,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Resources\Images\Images.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\Icons.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\logo_dark.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -69,6 +78,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Images\Icons.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AddProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

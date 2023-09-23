@@ -47,6 +47,7 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0019}"
                 HorizontalOptions="Center"
                 Command="{Binding SearchCommand}"/>
@@ -137,6 +138,7 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0026}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveQuantityCommand}"/>
@@ -148,7 +150,7 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource White}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
                 SemanticProperties.Hint="{StaticResource Label_0027}"
                 HorizontalOptions="Center"
                 Command="{Binding BackCommand}"/>
@@ -170,7 +172,7 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource White}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Tertiary}}"
                 SemanticProperties.Hint="{StaticResource Label_0009}"
                 HorizontalOptions="Center"
                 Command ="{Binding LoadFileCommand}"/>
@@ -182,6 +184,7 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0025}"
                 HorizontalOptions="Center"                
                 Command="{Binding SaveCommand}"/>
