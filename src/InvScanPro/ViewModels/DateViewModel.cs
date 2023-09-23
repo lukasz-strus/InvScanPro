@@ -9,7 +9,8 @@ namespace InvScanPro.ViewModels;
 
 public partial class DateViewModel : ObservableObject
 {
-    [ObservableProperty] private DateTime date;
+    [ObservableProperty] private DateTime _date;
+    [ObservableProperty] private string? _caption;
 
     private readonly ICsvFileService _csvFileService;
     private readonly IStorageService _storageService;
@@ -21,7 +22,8 @@ public partial class DateViewModel : ObservableObject
         _csvFileService = csvFileService;
         _storageService = storageService;
 
-        Date = CacheHelper.GetDateFromCache(_storageService);
+        SetDate();
+        SetCaption();
     }
 
     [RelayCommand]
@@ -47,13 +49,25 @@ public partial class DateViewModel : ObservableObject
         {
             bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
-            if (!result) return;            
+            if (!result) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
         _storageService.SetInventoryItems(inventoryItems);
 
-        Date = CacheHelper.GetDateFromCache(_storageService);
+        SetDate();
+        SetCaption();
+    }
+
+    private void SetDate() => Date = CacheHelper.GetDateFromCache(_storageService);
+
+    private void SetCaption()
+    {        
+        Application.Current!.Resources.TryGetValue("Label_0013", out object title);
+
+        var items = _storageService.GetInventoryItems();
+
+        Caption = items.Count == 0 ? $"{title}" : $"{title} {items[0].Countingnum}";
     }
 }
