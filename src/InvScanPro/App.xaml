@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
                 <ResourceDictionary Source="Resources/Labels/PL.xaml"/>
+                <ResourceDictionary Source="Resources/Images/Icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:InventoryConverter x:Key="InventoryConverter"/>
             <c:FullInventoryConverter x:Key="FullInventoryConverter"/>

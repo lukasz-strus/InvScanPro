@@ -4,7 +4,7 @@
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.Views.DatePage"
              x:DataType="vm:DateViewModel"
-             Title="{StaticResource Label_0013}">
+             Title="{Binding Caption}">
     <ScrollView>
         <VerticalStackLayout
             Spacing="30"
@@ -13,29 +13,28 @@
 
             <Label Text="{StaticResource Label_0005}"
                    HeightRequest="60"
-                   WidthRequest="215"
+                   WidthRequest="280"
                    Margin="0,30,0,0"
-                   FontSize="18"
+                   FontSize="19"
                    HorizontalOptions="Center"/>
 
             <DatePicker Date="{Binding Date}"
                         HeightRequest="60"
                         WidthRequest="200"
-                        FontSize="18"
+                        FontSize="19"
                         HorizontalOptions="Center"/>
 
             <Button Text="{StaticResource Label_0006}"
                     HeightRequest="60"
-                    WidthRequest="200" 
-                    FontSize="18"
+                    WidthRequest="200"
                     SemanticProperties.Hint="{StaticResource Label_0007}"
                     HorizontalOptions="Center"
                     Command="{Binding NavigateToLocationPageCommand}"/>
 
             <Button Text="{StaticResource Label_0008}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
                     HeightRequest="60"
-                    WidthRequest="200" 
-                    FontSize="18"
+                    WidthRequest="200"
                     SemanticProperties.Hint="{StaticResource Label_0009}"
                     HorizontalOptions="Center"
                     Command ="{Binding LoadFileCommand}"/>

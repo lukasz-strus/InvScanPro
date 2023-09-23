@@ -7,21 +7,20 @@ using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
-public partial class DateViewModel : ObservableObject
+public partial class DateViewModel : BaseViewModel
 {
-    [ObservableProperty] private DateTime date;
+    [ObservableProperty] private DateTime _date;
 
     private readonly ICsvFileService _csvFileService;
-    private readonly IStorageService _storageService;
 
     public DateViewModel(
         ICsvFileService csvFileService, 
-        IStorageService storageService)
+        IStorageService storageService) : base(storageService)
     {
         _csvFileService = csvFileService;
-        _storageService = storageService;
 
-        Date = CacheHelper.GetDateFromCache(_storageService);
+        SetCaption("Label_0013");
+        SetDate();        
     }
 
     [RelayCommand]
@@ -45,15 +44,20 @@ public partial class DateViewModel : ObservableObject
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            bool result = await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
-
-            if (!result) return;            
+            if (!ShouldRemoveExistingDatabase().Result) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
         _storageService.SetInventoryItems(inventoryItems);
 
-        Date = CacheHelper.GetDateFromCache(_storageService);
+        SetDate();
+        SetCaption("Label_0013");
     }
+
+    private void SetDate() => Date = CacheHelper.GetDateFromCache(_storageService);
+
+    private static async Task<bool> ShouldRemoveExistingDatabase()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
 }

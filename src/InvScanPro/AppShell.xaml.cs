@@ -17,6 +17,7 @@ namespace InvScanPro
             Routing.RegisterRoute(nameof(GeneralPage), typeof(GeneralPage));
             Routing.RegisterRoute(nameof(FilterPage), typeof(FilterPage));
             Routing.RegisterRoute(nameof(ProductDataPage), typeof(ProductDataPage));
+            Routing.RegisterRoute(nameof(AddProductPage), typeof(AddProductPage));
         }
     }
 }
