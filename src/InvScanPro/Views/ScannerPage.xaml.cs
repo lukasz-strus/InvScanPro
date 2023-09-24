@@ -35,14 +35,9 @@ public partial class ScannerPage : Popup
         MainThread.BeginInvokeOnMainThread(async () =>
 		{
 			isScanning = true;
+			Vibration.Default.Vibrate(new TimeSpan(0,0,0,0,100));
             await CameraView.StopCameraAsync();
-
-            var result = args.Result[0].Text;
-
-			//_vm.ScannedProduct.STNumber = result;
-			//_vm.SearchCommand.Execute(result);
-
-			await this.CloseAsync(result);
+			await CloseAsync(args.Result[0].Text);
         });
     }
 }

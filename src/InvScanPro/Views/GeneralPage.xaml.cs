@@ -23,7 +23,8 @@ public partial class GeneralPage : ContentPage
         eSTNumber.Unfocus();
 
         var popup = new ScannerPage(_vm);
-        var test = await this.ShowPopupAsync(popup) as string;
+        _vm.ScannedProduct.STNumber = await this.ShowPopupAsync(popup) as string;
+        _vm.SearchCommand.Execute(null);
     }
 
     private static async Task<bool> ShouldUseQRScanner()
