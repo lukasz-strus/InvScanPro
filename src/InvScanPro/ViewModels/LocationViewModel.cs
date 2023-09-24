@@ -39,7 +39,7 @@ public partial class LocationViewModel : BaseViewModel
             { "Inventory", Inventory }
         };
 
-        await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
+        await Shell.Current.GoToAsync($"{nameof(StartInventoryPage)}", navigationParameter);
     }
 
 

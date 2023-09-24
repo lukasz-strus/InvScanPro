@@ -24,7 +24,7 @@
             <ColumnDefinition Width=".33*"/>
             <ColumnDefinition Width=".33*"/>
         </Grid.ColumnDefinitions>
-        
+
         <StackLayout Grid.Column="0"
                      Grid.Row="0"
                      Grid.ColumnSpan="2">
@@ -35,27 +35,12 @@
 
             <Entry x:Name="eSTNumber"
                    Text="{Binding ScannedProduct.STNumber}"
-                   WidthRequest="240"
+                   WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start">
-                <Entry.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="EntryTapped"/>
-                </Entry.GestureRecognizers>
             </Entry>
         </StackLayout>
-        
-        <Button x:Name="btnSearch"
-                Grid.Column="2"
-                Grid.Row="0"
-                Text="{StaticResource Label_0018}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
-                SemanticProperties.Hint="{StaticResource Label_0019}"
-                HorizontalOptions="Center"
-                Command="{Binding SearchCommand}"/>
-        
+
         <StackLayout Grid.Column="0"
                      Grid.Row="1"
                      Grid.ColumnSpan="3">

@@ -16,6 +16,7 @@ public static class ServiceCollectionExtension
         services.AddTransient<FilterPage>();
         services.AddTransient<ProductDataPage>();
         services.AddTransient<AddProductPage>();
+        services.AddTransient<StartInventoryPage>();
     }
 
     public static void AddViewModels(this IServiceCollection services)
@@ -28,6 +29,7 @@ public static class ServiceCollectionExtension
         services.AddTransient<FilterViewModel>();
         services.AddTransient<ProductDataViewModel>();
         services.AddTransient<AddProductViewModel>();
+        services.AddTransient<StartInventoryViewModel>();
     }
 
     public static void AddServices(this IServiceCollection services)

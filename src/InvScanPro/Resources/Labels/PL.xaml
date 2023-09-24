@@ -55,6 +55,8 @@
     <x:String x:Key="Label_0050">Zapisać nowy rekord?</x:String>
     <x:String x:Key="Label_0051">STNumber</x:String>
     <x:String x:Key="Label_0052">Czy chcesz użyć QR Scanner?</x:String>
+    <x:String x:Key="Label_0053">Start aktywności</x:String>
+    <x:String x:Key="Label_0054">Skanuj kod</x:String>
 
 
 </ResourceDictionary>

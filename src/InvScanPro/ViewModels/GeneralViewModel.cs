@@ -8,10 +8,12 @@ using InvScanPro.Views;
 namespace InvScanPro.ViewModels;
 
 [QueryProperty(nameof(Inventory), "Inventory")]
+[QueryProperty(nameof(STNumber), "STNumber")]
 public partial class GeneralViewModel : BaseViewModel
 {
     [ObservableProperty] private Inventory? _inventory;
-    [ObservableProperty] private Product _scannedProduct = new();
+    [ObservableProperty] private Product _scannedProduct;
+    [ObservableProperty] private string? _sTNumber;
 
     private readonly ICsvFileService _csvFileService;
 
@@ -20,7 +22,15 @@ public partial class GeneralViewModel : BaseViewModel
         ICsvFileService csvFileService) : base(storageService)
     {
         _csvFileService = csvFileService;
+
+        ScannedProduct = new()
+        {
+            STNumber = STNumber
+        };
+
         SetCaption("Label_0016");
+
+        SearchCommand.Execute(null);
     }
 
     [RelayCommand]
@@ -47,21 +57,9 @@ public partial class GeneralViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task Search()
+    public async Task Search()
     {
-        if (string.IsNullOrEmpty(ScannedProduct!.STNumber))
-        {
-            await ShowEmptySTNumberError();
-            return;
-        };
-
-        if (_storageService.IsInventoryItemsEmpty())
-        {
-            await ShowEmptyInventoryItemsError();
-            return;
-        }
-
-        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber);
+        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
 
         if (inventoryItem is null)
         {

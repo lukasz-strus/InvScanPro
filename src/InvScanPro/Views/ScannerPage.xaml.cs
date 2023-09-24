@@ -6,13 +6,11 @@ namespace InvScanPro.Views;
 
 public partial class ScannerPage : Popup
 {
-	private readonly GeneralViewModel _vm;
 	private bool isScanning = false;
-    public ScannerPage(GeneralViewModel vm)
+
+    public ScannerPage()
 	{
 		InitializeComponent();
-		_vm = vm;
-		BindingContext = _vm;
 	}
 
     private void CameraView_CamerasLoaded(object sender, EventArgs e)
