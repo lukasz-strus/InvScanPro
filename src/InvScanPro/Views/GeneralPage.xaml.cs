@@ -7,10 +7,13 @@ namespace InvScanPro.Views;
 public partial class GeneralPage : ContentPage
 {
 	private GeneralViewModel _vm;
-	public GeneralPage(GeneralViewModel vm)
+    private readonly ScannerPage _scannerPage;
+
+    public GeneralPage(GeneralViewModel vm, ScannerPage scannerPage)
 	{
 		InitializeComponent();
         _vm = vm;
+        _scannerPage = scannerPage;
         BindingContext = _vm;
 	}
 
@@ -19,12 +22,14 @@ public partial class GeneralPage : ContentPage
         bool result = await ShouldUseQRScanner();
         if (!result) return;
 
+        eSTNumber.Unfocus();
+
         var popup = new ScannerPage(_vm);
         this.ShowPopup(popup);
+        await new TaskFactory().StartNew(() => { Thread.Sleep(5000); });
+        await popup.CloseAsync();
     }
 
     private static async Task<bool> ShouldUseQRScanner()
-    {
-        return await DisplayHelper.DisplayAlert("Label_0051", "Label_0052", "Label_0044", "Label_0045");
-    }
+        => await DisplayHelper.DisplayAlert("Label_0051", "Label_0052", "Label_0044", "Label_0045");
 }

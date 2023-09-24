@@ -23,8 +23,7 @@ public class CsvFileService : ICsvFileService
 
         if (result == null) return records;
 
-        var stream = await result.OpenReadAsync();
-
+        using var stream = await result.OpenReadAsync();
         using var reader = new StreamReader(stream);
         using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
         {

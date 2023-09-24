@@ -4,7 +4,6 @@ using InvScanPro.Helpers;
 using InvScanPro.Models;
 using InvScanPro.Services;
 using InvScanPro.Views;
-using CommunityToolkit.Maui.Views;
 
 namespace InvScanPro.ViewModels;
 
@@ -22,11 +21,6 @@ public partial class GeneralViewModel : BaseViewModel
     {
         _csvFileService = csvFileService;
         SetCaption("Label_0016");
-    }
-
-    public void UpdateSTNumber(string stNumber)
-    {
-        ScannedProduct.STNumber = stNumber;
     }
 
     [RelayCommand]

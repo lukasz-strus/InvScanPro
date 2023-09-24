@@ -1,5 +1,6 @@
 using InvScanPro.ViewModels;
 using CommunityToolkit.Maui.Views;
+using Camera.MAUI;
 
 namespace InvScanPro.Views;
 
@@ -30,11 +31,12 @@ public partial class ScannerPage : Popup
     {
         MainThread.BeginInvokeOnMainThread(async () =>
 		{
-			BarcodeResult.Text = $"{args.Result[0].BarcodeFormat}: {args.Result[0].Text}";
-			var result = args.Result[0].Text;
-			_vm.UpdateSTNumber(result);
+            await CameraView.StopCameraAsync();
 
-			await CloseAsync();
+            var result = args.Result[0].Text;
+
+			_vm.ScannedProduct.STNumber = result;
+			_vm.SearchCommand.Execute(result);
         });
     }
 }

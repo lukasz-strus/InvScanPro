@@ -10,10 +10,7 @@
             Spacing="25"
             Padding="30"
             VerticalOptions="Center">
-
-            <Label x:Name="BarcodeResult"
-                FontSize="20"
-                HorizontalOptions="Center"/>
+            
             <cv:CameraView
                 x:Name="CameraView"
                 HeightRequest="450"
