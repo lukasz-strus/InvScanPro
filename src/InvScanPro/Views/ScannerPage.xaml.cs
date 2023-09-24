@@ -7,6 +7,7 @@ namespace InvScanPro.Views;
 public partial class ScannerPage : Popup
 {
 	private readonly GeneralViewModel _vm;
+	private bool isScanning = false;
     public ScannerPage(GeneralViewModel vm)
 	{
 		InitializeComponent();
@@ -29,14 +30,19 @@ public partial class ScannerPage : Popup
 
     private void CameraView_BarcodeDetected(object sender, Camera.MAUI.ZXingHelper.BarcodeEventArgs args)
     {
+		if (isScanning) return;
+
         MainThread.BeginInvokeOnMainThread(async () =>
 		{
+			isScanning = true;
             await CameraView.StopCameraAsync();
 
             var result = args.Result[0].Text;
 
-			_vm.ScannedProduct.STNumber = result;
-			_vm.SearchCommand.Execute(result);
+			//_vm.ScannedProduct.STNumber = result;
+			//_vm.SearchCommand.Execute(result);
+
+			await this.CloseAsync(result);
         });
     }
 }

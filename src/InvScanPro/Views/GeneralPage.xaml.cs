@@ -7,13 +7,11 @@ namespace InvScanPro.Views;
 public partial class GeneralPage : ContentPage
 {
 	private GeneralViewModel _vm;
-    private readonly ScannerPage _scannerPage;
 
-    public GeneralPage(GeneralViewModel vm, ScannerPage scannerPage)
+    public GeneralPage(GeneralViewModel vm)
 	{
 		InitializeComponent();
         _vm = vm;
-        _scannerPage = scannerPage;
         BindingContext = _vm;
 	}
 
@@ -25,9 +23,7 @@ public partial class GeneralPage : ContentPage
         eSTNumber.Unfocus();
 
         var popup = new ScannerPage(_vm);
-        this.ShowPopup(popup);
-        await new TaskFactory().StartNew(() => { Thread.Sleep(5000); });
-        await popup.CloseAsync();
+        var test = await this.ShowPopupAsync(popup) as string;
     }
 
     private static async Task<bool> ShouldUseQRScanner()
