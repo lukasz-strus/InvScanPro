@@ -15,6 +15,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".33*"/>
@@ -55,7 +56,6 @@
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0019}"
                 HorizontalOptions="Center"
                 Command="{Binding SearchCommand}"/>
@@ -63,15 +63,39 @@
 
         <Button x:Name="btnLoadFile"
                 Grid.Column="0"
-                Grid.Row="2"
+                Grid.Row="4"
                 Text="{StaticResource Label_0008}"
                 HeightRequest="50"
                 WidthRequest="100" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0009}"
                 HorizontalOptions="Center"
                 Command ="{Binding LoadFileCommand}"/>
+
+        <Button x:Name="btnSave"
+                Grid.Column="2"
+                Grid.Row="4"
+                Text="{StaticResource Label_0025}"
+                HeightRequest="50"
+                WidthRequest="100" 
+                FontSize="17"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
+                SemanticProperties.Hint="{StaticResource Label_0026}"
+                HorizontalOptions="Center"
+                Command="{Binding SaveCommand}"/>
+
+        <Button x:Name="btnClose"
+                Grid.Column="1"
+                Grid.Row="5"
+                Text="{StaticResource Label_0028}"
+                HeightRequest="50"
+                WidthRequest="200" 
+                FontSize="17"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
+                SemanticProperties.Hint="{StaticResource Label_0028}"
+                HorizontalOptions="Center"
+                Command="{Binding CloseCommand}"/>
 
     </Grid>
 </ContentPage>

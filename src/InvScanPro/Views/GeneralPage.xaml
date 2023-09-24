@@ -113,16 +113,28 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eQuantity"
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="eQuantity"
                    Text="{Binding ScannedProduct.Quantity}"
-                   WidthRequest="200"
+                   WidthRequest="100"
                    FontSize="17"
                    HorizontalOptions="Start"/>
+
+                <Entry x:Name="eInventory"
+                       Grid.Column="2"
+                       Grid.Row="5"
+                       Grid.ColumnSpan="2"
+                       Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
+                       WidthRequest="240"
+                       FontSize="17"
+                       HorizontalOptions="End" 
+                       IsEnabled="False"/>
+            </StackLayout>
         </StackLayout>
         
         <Button x:Name="btnSaveQuantity"
-                Grid.Column="2"
-                Grid.Row="5"
+                Grid.Column="0"
+                Grid.Row="6"
                 Text="{StaticResource Label_0025}"
                 HeightRequest="50"
                 WidthRequest="100" 
@@ -131,9 +143,9 @@
                 SemanticProperties.Hint="{StaticResource Label_0026}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveQuantityCommand}"/>
-        
+
         <Button x:Name="btnBack"
-                Grid.Column="0"
+                Grid.Column="2"
                 Grid.Row="6"
                 Text="{StaticResource Label_0027}"
                 HeightRequest="50"
@@ -143,51 +155,5 @@
                 SemanticProperties.Hint="{StaticResource Label_0027}"
                 HorizontalOptions="Center"
                 Command="{Binding BackCommand}"/>
-        
-        <Entry x:Name="eInventory"
-               Grid.Column="1"
-               Grid.Row="6"
-               Grid.ColumnSpan="2"
-               Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
-               WidthRequest="240"
-               FontSize="17"
-               HorizontalOptions="End" 
-               IsEnabled="False"/>
-        
-        <Button x:Name="btnLoadFile"
-                Grid.Column="0"
-                Grid.Row="7"
-                Text="{StaticResource Label_0008}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource Tertiary}}"
-                SemanticProperties.Hint="{StaticResource Label_0009}"
-                HorizontalOptions="Center"
-                Command ="{Binding LoadFileCommand}"/>
-
-        <Button x:Name="btnSave"
-                Grid.Column="1"
-                Grid.Row="7"
-                Text="{StaticResource Label_0025}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
-                SemanticProperties.Hint="{StaticResource Label_0025}"
-                HorizontalOptions="Center"                
-                Command="{Binding SaveCommand}"/>
-
-        <Button x:Name="btnClose"
-                Grid.Column="2"
-                Grid.Row="7"
-                Text="{StaticResource Label_0028}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
-                SemanticProperties.Hint="{StaticResource Label_0028}"
-                HorizontalOptions="Center"
-                Command="{Binding CloseCommand}"/>
     </Grid>
 </ContentPage>

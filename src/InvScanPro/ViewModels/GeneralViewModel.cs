@@ -12,7 +12,7 @@ namespace InvScanPro.ViewModels;
 public partial class GeneralViewModel : BaseViewModel
 {
     [ObservableProperty] private Inventory? _inventory;
-    [ObservableProperty] private Product _scannedProduct;
+    [ObservableProperty] private Product? _scannedProduct;
     [ObservableProperty] private string? _sTNumber;
 
     private readonly ICsvFileService _csvFileService;
@@ -23,13 +23,9 @@ public partial class GeneralViewModel : BaseViewModel
     {
         _csvFileService = csvFileService;
 
-        ScannedProduct = new()
-        {
-            STNumber = STNumber
-        };
-
         SetCaption("Label_0016");
 
+        //TODO https://stackoverflow.com/questions/74625838/run-method-in-viewmodel-after-receiving-object-in-appshell-net-maui
         SearchCommand.Execute(null);
     }
 
@@ -59,6 +55,11 @@ public partial class GeneralViewModel : BaseViewModel
     [RelayCommand]
     public async Task Search()
     {
+        ScannedProduct = new()
+        {
+            STNumber = STNumber
+        };
+
         var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
 
         if (inventoryItem is null)
@@ -79,17 +80,6 @@ public partial class GeneralViewModel : BaseViewModel
         //Tdo create back mechanism
     }
 
-    [RelayCommand]
-    private async Task Save()
-    {
-        //TODO create save mechanism
-    }
-
-    [RelayCommand]
-    private async Task Close()
-    {
-        //TODO create close mechanism
-    }
 
     private static async Task<bool> ShouldRemoveExistingDatabase()
         => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");

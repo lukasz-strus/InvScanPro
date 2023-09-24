@@ -71,6 +71,18 @@ public partial class StartInventoryViewModel : BaseViewModel
         SetCaption("Label_0016");
     }
 
+    [RelayCommand]
+    private async Task Save()
+    {
+        //TODO create save mechanism
+    }
+
+    [RelayCommand]
+    private async Task Close()
+    {
+        //TODO create close mechanism
+    }
+
     private static async Task ShowEmptySTNumberError()
         => await DisplayHelper.DisplayError("Label_0040", "Label_0046");
 
