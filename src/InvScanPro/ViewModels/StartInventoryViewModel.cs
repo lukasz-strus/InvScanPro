@@ -60,8 +60,8 @@ public partial class StartInventoryViewModel : BaseViewModel
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            var result = await ShouldRemoveExistingDatabase();
-            if (!result) return;
+            var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
+            if (!shouldRemoveExistingDatabase) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();

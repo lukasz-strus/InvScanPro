@@ -16,7 +16,7 @@
 		<ApplicationTitle>InvScanPro</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.invscanpro</ApplicationId>
+		<ApplicationId>com.strusscore.invscanpro</ApplicationId>
 		<ApplicationIdGuid>e415cec1-2429-4256-b630-92a34a363d7e</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -33,10 +33,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\logo_dark.png" Color="#222222" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />

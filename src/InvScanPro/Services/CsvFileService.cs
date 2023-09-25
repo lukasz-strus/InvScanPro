@@ -1,5 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
 using System.Globalization;
 
@@ -21,7 +22,11 @@ public class CsvFileService : ICsvFileService
             PickerTitle = "Select file to load"
         });
 
-        if (result == null) return records;
+        if (result == null || !result.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+        {
+            await DisplayHelper.DisplayError("Label_0040", "Label_0057");
+            return records;
+        }
 
         using var stream = await result.OpenReadAsync();
         using var reader = new StreamReader(stream);

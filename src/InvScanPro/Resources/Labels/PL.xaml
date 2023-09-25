@@ -59,6 +59,7 @@
     <x:String x:Key="Label_0054">Skanuj kod</x:String>
     <x:String x:Key="Label_0055"> już zliczony, dodać 1 sztukę?</x:String>
     <x:String x:Key="Label_0056">Zapisz ilość</x:String>
+    <x:String x:Key="Label_0057">Nieprawidłowy wybór pliku. Proszę wybrać plik o rozszerzeniu ".csv".</x:String>
 
 
 </ResourceDictionary>
