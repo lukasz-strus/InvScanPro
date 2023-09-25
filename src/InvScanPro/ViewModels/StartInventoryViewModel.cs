@@ -48,9 +48,11 @@ public partial class StartInventoryViewModel : BaseViewModel
         {
             { "Inventory", Inventory! },
             { "STNumber", STNumber! }
-        };
+        };        
 
         await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
+
+        STNumber = string.Empty;
     }
 
     [RelayCommand]
