@@ -24,9 +24,6 @@ public partial class GeneralViewModel : BaseViewModel
         _csvFileService = csvFileService;
 
         SetCaption("Label_0016");
-
-        //TODO https://stackoverflow.com/questions/74625838/run-method-in-viewmodel-after-receiving-object-in-appshell-net-maui
-        SearchCommand.Execute(null);
     }
 
     [RelayCommand]
@@ -65,11 +62,17 @@ public partial class GeneralViewModel : BaseViewModel
         if (inventoryItem is null)
         {
             var result = await ShouldAddNewItem();
-            if (!result) return;
+            if (!result)
+            {
+                Shell.Current?.GoToAsync("..");
+                return;
+            }
 
             await NavigateToInventoryItemCreator();
             return;
         }
+
+        //TODO add quantity mechanism
 
         SetScannedProduct(inventoryItem);
     }
@@ -99,7 +102,7 @@ public partial class GeneralViewModel : BaseViewModel
     {
         var navigationParameter = new Dictionary<string, object>
             {
-                { "Product", ScannedProduct },
+                { "Product", ScannedProduct! },
                 { "Inventory", Inventory! }
             };
 
