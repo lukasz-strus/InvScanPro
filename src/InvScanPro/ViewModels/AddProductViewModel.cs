@@ -46,10 +46,4 @@ public partial class AddProductViewModel : ObservableObject
 
         await Shell.Current.GoToAsync("..");
     }
-
-    [RelayCommand]
-    private async Task Cancel()
-    {
-        await Shell.Current.GoToAsync("..");
-    }
 }

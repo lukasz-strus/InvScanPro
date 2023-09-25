@@ -11,6 +11,7 @@ namespace InvScanPro.ViewModels;
 [QueryProperty(nameof(STNumber), "STNumber")]
 public partial class GeneralViewModel : BaseViewModel
 {
+    private bool _navigateFromCreator = false;
     [ObservableProperty] private Inventory? _inventory;
     [ObservableProperty] private Product? _scannedProduct;
     [ObservableProperty] private string? _sTNumber;
@@ -52,6 +53,12 @@ public partial class GeneralViewModel : BaseViewModel
     [RelayCommand]
     public async Task Search()
     {
+        if (_navigateFromCreator)
+        {
+            _navigateFromCreator = false;
+            return;
+        }
+
         ScannedProduct = new()
         {
             STNumber = STNumber
@@ -61,8 +68,9 @@ public partial class GeneralViewModel : BaseViewModel
 
         if (inventoryItem is null)
         {
-            var result = await ShouldAddNewItem();
-            if (!result)
+            _navigateFromCreator = true;
+            var shouldAddNewItem = await ShouldAddNewItem(ScannedProduct.STNumber!);
+            if (!shouldAddNewItem)
             {
                 Shell.Current?.GoToAsync("..");
                 return;
@@ -72,20 +80,14 @@ public partial class GeneralViewModel : BaseViewModel
             return;
         }
 
-        //TODO add quantity mechanism
+        SetScannedProduct(inventoryItem);
 
+        var shouldAddItemToInventory = await ShouldAddItemToInventory(ScannedProduct.STNumber!);
+        if (!shouldAddItemToInventory) return;
+
+        inventoryItem.Count++;
         SetScannedProduct(inventoryItem);
     }
-    
-    [RelayCommand]
-    private async Task Back()
-    {
-        //Tdo create back mechanism
-    }
-
-
-    private static async Task<bool> ShouldRemoveExistingDatabase()
-        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
     private void SetScannedProduct(InventoryItem inventoryItem)
         => ScannedProduct = new()
@@ -109,13 +111,19 @@ public partial class GeneralViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);
     }
 
+    private static async Task<bool> ShouldAddItemToInventory(string STNumber)
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0055", "Label_0044", "Label_0045", preMessage: STNumber);
+
+    private static async Task<bool> ShouldRemoveExistingDatabase()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
     private static async Task ShowEmptyInventoryItemsError()
         => await DisplayHelper.DisplayError("Label_0040", "Label_0047");
 
     private static async Task ShowEmptySTNumberError()
         => await DisplayHelper.DisplayError("Label_0040", "Label_0046");
 
-    private static async Task<bool> ShouldAddNewItem()
-        => await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045");
+    private static async Task<bool> ShouldAddNewItem(string STNumber)
+        => await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045", preMessage: STNumber);
 
 }

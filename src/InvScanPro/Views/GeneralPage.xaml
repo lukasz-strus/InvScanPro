@@ -137,29 +137,17 @@
                        IsEnabled="False"/>
             </StackLayout>
         </StackLayout>
-        
+
         <Button x:Name="btnSaveQuantity"
-                Grid.Column="0"
+                Grid.Column="1"
                 Grid.Row="6"
-                Text="{StaticResource Label_0025}"
+                Text="{StaticResource Label_0056}"
                 HeightRequest="50"
-                WidthRequest="100" 
+                WidthRequest="150" 
                 FontSize="17"
                 BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
-                SemanticProperties.Hint="{StaticResource Label_0026}"
+                SemanticProperties.Hint="{StaticResource Label_0056}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveQuantityCommand}"/>
-
-        <Button x:Name="btnBack"
-                Grid.Column="2"
-                Grid.Row="6"
-                Text="{StaticResource Label_0027}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Primary}}"
-                SemanticProperties.Hint="{StaticResource Label_0027}"
-                HorizontalOptions="Center"
-                Command="{Binding BackCommand}"/>
     </Grid>
 </ContentPage>
