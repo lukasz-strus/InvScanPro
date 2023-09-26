@@ -124,16 +124,5 @@
                 SemanticProperties.Hint="{StaticResource Label_0025}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveCommand}"/>
-
-        <Button x:Name="btnBack"
-                Grid.Column="1"
-                Grid.Row="6"
-                Text="{StaticResource Label_0027}"
-                HeightRequest="50"
-                WidthRequest="100" 
-                FontSize="17"
-                SemanticProperties.Hint="{StaticResource Label_0027}"
-                HorizontalOptions="Center"
-                Command="{Binding CancelCommand}"/>
     </Grid>
 </ContentPage>

@@ -1,6 +1,8 @@
 ﻿using InvScanPro.ViewModels;
 using Microsoft.Extensions.Logging;
 using InvScanPro.Extensions;
+using Camera.MAUI;
+using CommunityToolkit.Maui;
 
 namespace InvScanPro;
 
@@ -10,17 +12,17 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder
-            .UseMauiApp<App>()
+            .UseMauiApp<App>()            
             .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            });
-
+        {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+        })
+            .UseMauiCameraView()
+            .UseMauiCommunityToolkit();
         builder.Services.AddPages();
         builder.Services.AddViewModels();
         builder.Services.AddServices();
-
         return builder.Build();
     }
 }

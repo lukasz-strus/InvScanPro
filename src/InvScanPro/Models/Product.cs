@@ -7,5 +7,5 @@ public class Product
     public string? Info1 { get; set; } = default!;
     public string? Info2 { get; set; } = default!;
     public string? Info3 { get; set; } = default!;
-    public int Quantity { get; set; }
+    public int Quantity { get; set; } = 1;
 }

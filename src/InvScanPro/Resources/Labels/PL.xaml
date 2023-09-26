@@ -50,9 +50,16 @@
     <x:String x:Key="Label_0045">Nie</x:String>
     <x:String x:Key="Label_0046">Nie podano numeru ST.</x:String>
     <x:String x:Key="Label_0047">Nie wczytano pliku z bazą danych.</x:String>
-    <x:String x:Key="Label_0048">Nie znaleziono środka w bazie danych. Czy dodać” nowy środek?</x:String>
+    <x:String x:Key="Label_0048"> nie istnieje na liście. Czy dodać nowy środek?</x:String>
     <x:String x:Key="Label_0049">Dodaj nowy środek</x:String>
     <x:String x:Key="Label_0050">Zapisać nowy rekord?</x:String>
+    <x:String x:Key="Label_0051">STNumber</x:String>
+    <x:String x:Key="Label_0052">Czy chcesz użyć QR Scanner?</x:String>
+    <x:String x:Key="Label_0053">Start aktywności</x:String>
+    <x:String x:Key="Label_0054">Skanuj kod</x:String>
+    <x:String x:Key="Label_0055"> już zliczony, dodać 1 sztukę?</x:String>
+    <x:String x:Key="Label_0056">Zapisz ilość</x:String>
+    <x:String x:Key="Label_0057">Nieprawidłowy wybór pliku. Proszę wybrać plik o rozszerzeniu ".csv".</x:String>
 
 
 </ResourceDictionary>

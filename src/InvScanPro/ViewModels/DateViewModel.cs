@@ -44,7 +44,8 @@ public partial class DateViewModel : BaseViewModel
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            if (!ShouldRemoveExistingDatabase().Result) return;
+            var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
+            if (!shouldRemoveExistingDatabase) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();

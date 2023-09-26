@@ -1,4 +1,6 @@
-﻿namespace InvScanPro.Helpers;
+﻿using System.Text;
+
+namespace InvScanPro.Helpers;
 
 internal static class DisplayHelper
 {
@@ -16,16 +18,23 @@ internal static class DisplayHelper
         string titleLabel,
         string messageLabel,
         string yesLabel,
-        string noLabel)
+        string noLabel,
+        string? preMessage = null,
+        string? postMessage = null)
     {
         Application.Current!.Resources.TryGetValue(titleLabel, out object title);
         Application.Current!.Resources.TryGetValue(messageLabel, out object message);
         Application.Current!.Resources.TryGetValue(yesLabel, out object yes);
         Application.Current!.Resources.TryGetValue(noLabel, out object no);
 
+        var sb = new StringBuilder();
+        sb.Append(preMessage);
+        sb.Append(message.ToString());
+        sb.Append(postMessage);
+
         return await Application.Current!.MainPage!.DisplayAlert(
             title.ToString(),
-            message.ToString(),
+            sb.ToString(),
             yes.ToString(),
             no.ToString());
     }

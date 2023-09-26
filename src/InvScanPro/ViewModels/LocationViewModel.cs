@@ -39,7 +39,7 @@ public partial class LocationViewModel : BaseViewModel
             { "Inventory", Inventory }
         };
 
-        await Shell.Current.GoToAsync($"{nameof(GeneralPage)}", navigationParameter);
+        await Shell.Current.GoToAsync($"{nameof(StartInventoryPage)}", navigationParameter);
     }
 
 
@@ -49,7 +49,8 @@ public partial class LocationViewModel : BaseViewModel
     {
         if (!_storageService.IsInventoryItemsEmpty())
         {
-            if (!ShouldRemoveExistingDatabase().Result) return;
+            var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
+            if (!shouldRemoveExistingDatabase) return;
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
