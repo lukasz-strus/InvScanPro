@@ -55,8 +55,8 @@
                        Text="{Binding Inventory.Location}"
                        FontSize="17"
                        HorizontalOptions="FillAndExpand"
-                       SemanticProperties.Hint="{StaticResource Label_0033}"/>    
-                
+                       SemanticProperties.Hint="{StaticResource Label_0033}"/>
+
                 <Button x:Name="btnFilter"
                         Text="{StaticResource Label_0035}"
                         Margin="20,0,0,0"
@@ -66,16 +66,5 @@
                         Command="{Binding FilterCommand}"/>
             </StackLayout>
         </StackLayout>
-
-        <Button x:Name="btnBack"
-                Grid.Column="0"
-                Grid.Row="3"
-                Text="{StaticResource Label_0036}"
-                HeightRequest="50"
-                WidthRequest="100"
-                FontSize="17"
-                HorizontalOptions="Start"
-                SemanticProperties.Hint="{StaticResource Label_0036}"
-                Command="{Binding BackCommand}"/>
     </Grid>
 </ContentPage>

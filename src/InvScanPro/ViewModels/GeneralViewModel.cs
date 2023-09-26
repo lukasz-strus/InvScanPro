@@ -47,7 +47,9 @@ public partial class GeneralViewModel : BaseViewModel
     [RelayCommand]
     private async Task SaveQuantity()
     {
-        //TODO create save quantity mechanism
+        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
+        inventoryItem!.Count = ScannedProduct!.Quantity;
+        SetScannedProduct(inventoryItem);
     }
 
     [RelayCommand]
