@@ -76,7 +76,8 @@ public partial class StartInventoryViewModel : BaseViewModel
     [RelayCommand]
     private async Task Save()
     {
-        //TODO create save mechanism
+        var inventoryItems = _storageService.GetInventoryItems();
+        await _csvFileService.SaveCsvFileAsync(inventoryItems);
     }
 
     [RelayCommand]

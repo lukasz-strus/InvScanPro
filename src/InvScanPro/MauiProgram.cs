@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using InvScanPro.Extensions;
 using Camera.MAUI;
 using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Storage;
 
 namespace InvScanPro;
 
@@ -20,6 +21,8 @@ public static class MauiProgram
         })
             .UseMauiCameraView()
             .UseMauiCommunityToolkit();
+
+        builder.Services.AddSingleton(FileSaver.Default);
         builder.Services.AddPages();
         builder.Services.AddViewModels();
         builder.Services.AddServices();

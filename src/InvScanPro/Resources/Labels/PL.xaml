@@ -60,6 +60,9 @@
     <x:String x:Key="Label_0055"> już zliczony, dodać 1 sztukę?</x:String>
     <x:String x:Key="Label_0056">Zapisz ilość</x:String>
     <x:String x:Key="Label_0057">Nieprawidłowy wybór pliku. Proszę wybrać plik o rozszerzeniu ".csv".</x:String>
+    <x:String x:Key="Label_0058">Plik został zapisany: </x:String>
+    <x:String x:Key="Label_0059">Błąd podczas zapisywania pliku.</x:String>
+    <x:String x:Key="Label_0060">Wybierz plik do wczytania</x:String>
 
 
 </ResourceDictionary>
