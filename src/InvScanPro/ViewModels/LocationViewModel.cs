@@ -62,7 +62,7 @@ public partial class LocationViewModel : BaseViewModel
         SetCaption("Label_0014");
     }
     private static async Task ShowEmptyLocationError()
-        => await DisplayHelper.DisplayError("Label_0040", "Label_0041");
+        => await DisplayHelper.DisplayToast("Label_0041");
 
     private static async Task<bool> ShouldRemoveExistingDatabase()
         => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");

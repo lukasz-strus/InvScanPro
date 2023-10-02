@@ -7,32 +7,39 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="30"
-            Padding="30,0"
-            VerticalOptions="Start">
-            <Image
-                Source="{AppThemeBinding Light={StaticResource LogoLight}, Dark={StaticResource LogoDark}}"
-                SemanticProperties.Description="InvScanPro"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                VerticalOptions="Start"/>
+            Spacing="250"
+            Padding="30,0">
+            <StackLayout VerticalOptions="Start" Spacing="30">
+                <Image  Source="{AppThemeBinding Light={StaticResource LogoLight}, Dark={StaticResource LogoDark}}"
+                        SemanticProperties.Description="InvScanPro"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"/>
 
-            <Button Text="{StaticResource Label_0001}"
-                    HeightRequest="60"
-                    WidthRequest="200"
-                    SemanticProperties.Hint="{StaticResource Label_0002}"
-                    HorizontalOptions="Center"
-                    Command="{Binding NavigateToDataPageCommand}"/>
-            
-            <Button Text="{StaticResource Label_0003}"
-                    BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
-                    HeightRequest="60"
-                    WidthRequest="200"
-                    SemanticProperties.Hint="{StaticResource Label_0004}"
-                    HorizontalOptions="Center"
-                    Command="{Binding NavigateToFilterPageCommand}"/>
+                <Button Text="{StaticResource Label_0001}"
+                        HeightRequest="60"
+                        WidthRequest="200"
+                        SemanticProperties.Hint="{StaticResource Label_0002}"
+                        HorizontalOptions="Center"
+                        Command="{Binding NavigateToDataPageCommand}"/>
 
+                <Button Text="{StaticResource Label_0003}"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
+                        HeightRequest="60"
+                        WidthRequest="200"
+                        SemanticProperties.Hint="{StaticResource Label_0004}"
+                        HorizontalOptions="Center"
+                        Command="{Binding NavigateToFilterPageCommand}"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button x:Name="btnClose" VerticalOptions="End"
+                        Text="{StaticResource Label_0028}"
+                        HeightRequest="60"
+                        WidthRequest="200"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
+                        SemanticProperties.Hint="{StaticResource Label_0028}"
+                        HorizontalOptions="Center"
+                        Command="{Binding CloseCommand}"/>
+            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

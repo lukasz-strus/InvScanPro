@@ -71,16 +71,12 @@ public class CsvFileService : ICsvFileService
             var fileSaverResult = await _fileSaver.SaveAsync(fullFileName, memoryStream, default);
             fileSaverResult.EnsureSuccess();
 
-            Application.Current!.Resources.TryGetValue("Label_0058", out object label);
-            var message = $"{label} {fileSaverResult.FilePath}";
-
-            await Toast.Make(message).Show();
+            await DisplayHelper.DisplayToast("Label_0058", postMessage: fileSaverResult.FilePath);
 
         }
         catch (Exception)
         {
-            Application.Current!.Resources.TryGetValue("Label_0059", out object message);
-            await Toast.Make($"{message}").Show();
+            await DisplayHelper.DisplayToast("Label_0059");
         }
     }
 
@@ -100,7 +96,7 @@ public class CsvFileService : ICsvFileService
 
             if (result == null || !result.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
             {
-                await DisplayHelper.DisplayError("Label_0040", "Label_0057");
+                await DisplayHelper.DisplayToast("Label_0057");
                 return records;
             }
 
@@ -121,9 +117,9 @@ public class CsvFileService : ICsvFileService
 
             return records;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            await Toast.Make($"Error while loading file {ex.Message}").Show();
+            await DisplayHelper.DisplayToast("Label_0062");
             return default!;
         }
     }

@@ -1,9 +1,22 @@
-﻿using System.Text;
+﻿using CommunityToolkit.Maui.Alerts;
+using System.Text;
 
 namespace InvScanPro.Helpers;
 
 internal static class DisplayHelper
 {
+    internal static async Task DisplayToast(
+        string label,
+        string? preMessage = null,
+        string? postMessage = null)
+    {
+        Application.Current!.Resources.TryGetValue(label, out object labelValue);
+        var sb = new StringBuilder();
+        sb.AppendJoin(" ", preMessage, labelValue.ToString(), postMessage);
+
+        await Toast.Make(sb.ToString()).Show();
+    }
+
     internal static async Task DisplayError(
         string titleLabel,
         string messageLabel)
@@ -28,9 +41,7 @@ internal static class DisplayHelper
         Application.Current!.Resources.TryGetValue(noLabel, out object no);
 
         var sb = new StringBuilder();
-        sb.Append(preMessage);
-        sb.Append(message.ToString());
-        sb.Append(postMessage);
+        sb.AppendJoin(" ",preMessage, message.ToString(), postMessage);
 
         return await Application.Current!.MainPage!.DisplayAlert(
             title.ToString(),
