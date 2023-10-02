@@ -76,21 +76,27 @@ public partial class StartInventoryViewModel : BaseViewModel
     [RelayCommand]
     private async Task Save()
     {
-        //TODO create save mechanism
+        var inventoryItems = _storageService.GetInventoryItems();
+        await _csvFileService.SaveCsvFileAsync(inventoryItems);
     }
 
     [RelayCommand]
-    private async Task Close()
+    private static async Task Close()
     {
-        //TODO create close mechanism
+        var shouldExit = await ShouldExit();
+
+        if (shouldExit) Environment.Exit(0);
     }
 
     private static async Task ShowEmptySTNumberError()
-        => await DisplayHelper.DisplayError("Label_0040", "Label_0046");
+        => await DisplayHelper.DisplayToast("Label_0046");
 
     private static async Task ShowEmptyInventoryItemsError()
-        => await DisplayHelper.DisplayError("Label_0040", "Label_0047");
+        => await DisplayHelper.DisplayToast("Label_0047");
 
     private static async Task<bool> ShouldRemoveExistingDatabase()
-    => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
+
+    private static async Task<bool> ShouldExit()
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0064", "Label_0044", "Label_0045");
 }

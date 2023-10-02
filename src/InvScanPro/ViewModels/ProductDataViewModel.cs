@@ -10,12 +10,6 @@ public partial class ProductDataViewModel : ObservableObject
     [ObservableProperty] private Inventory? inventory;
 
     [RelayCommand]
-    private async Task Back()
-    {
-        //TODO create back mechanism
-    }
-
-    [RelayCommand]
     private async Task Previous()
     {
         //TODO create previous mechanism

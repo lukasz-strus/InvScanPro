@@ -27,10 +27,4 @@ public partial class FilterViewModel : ObservableObject
 
         await Shell.Current.GoToAsync(nameof(ProductDataPage), navigationParameter);
     }
-
-    [RelayCommand]
-    private async Task Back()
-    {
-        //TODO create back mechanism
-    }
 }

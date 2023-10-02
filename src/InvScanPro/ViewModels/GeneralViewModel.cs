@@ -28,26 +28,11 @@ public partial class GeneralViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task LoadFile()
+    private void SaveQuantity()
     {
-        if (!_storageService.IsInventoryItemsEmpty())
-        {
-            if (!ShouldRemoveExistingDatabase().Result) return;
-        }
-
-        var inventoryItems = await _csvFileService.LoadCsvFileAsync();
-
-        _storageService.SetInventoryItems(inventoryItems);
-
-        Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
-
-        SetCaption("Label_0016");
-    }
-
-    [RelayCommand]
-    private async Task SaveQuantity()
-    {
-        //TODO create save quantity mechanism
+        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
+        inventoryItem!.Count = ScannedProduct!.Quantity;
+        SetScannedProduct(inventoryItem);
     }
 
     [RelayCommand]

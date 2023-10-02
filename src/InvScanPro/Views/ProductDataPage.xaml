@@ -112,15 +112,6 @@
                HorizontalOptions="Start" 
                IsEnabled="False"/>
 
-        <Button x:Name="btnBack"
-                Grid.Column="0"
-                Grid.Row="6"
-                Text="{StaticResource Label_0027}"
-                HeightRequest="50"
-                WidthRequest="100"
-                FontSize="16"
-                Command="{Binding BackCommand}"/>
-
         <Button x:Name="btnPrevious"
                 Grid.Column="1"
                 Grid.Row="6"

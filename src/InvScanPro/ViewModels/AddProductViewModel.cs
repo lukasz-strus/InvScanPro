@@ -44,6 +44,8 @@ public partial class AddProductViewModel : ObservableObject
 
         _storageService.AddInventoryItem(item);
 
+        await DisplayHelper.DisplayToast("Label_0063", preMessage: item.Barcode);
+
         await Shell.Current.GoToAsync("..");
     }
 }
