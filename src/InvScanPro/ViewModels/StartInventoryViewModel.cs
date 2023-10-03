@@ -34,11 +34,11 @@ public partial class StartInventoryViewModel : BaseViewModel
     {
         if(string.IsNullOrEmpty(STNumber))
         {
-            await ShowEmptySTNumberError();
+            await ShowEmptyStNumberError();
             return;
         }
 
-        if (_storageService.IsInventoryItemsEmpty())
+        if (StorageService.IsInventoryItemsEmpty())
         {
             await ShowEmptyInventoryItemsError();
             return;
@@ -58,7 +58,7 @@ public partial class StartInventoryViewModel : BaseViewModel
     [RelayCommand]
     private async Task LoadFile()
     {
-        if (!_storageService.IsInventoryItemsEmpty())
+        if (!StorageService.IsInventoryItemsEmpty())
         {
             var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
             if (!shouldRemoveExistingDatabase) return;
@@ -66,9 +66,9 @@ public partial class StartInventoryViewModel : BaseViewModel
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
-        _storageService.SetInventoryItems(inventoryItems);
+        StorageService.SetInventoryItems(inventoryItems);
 
-        Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
+        Inventory!.Date = CacheHelper.GetDateFromCache(StorageService);
 
         SetCaption("Label_0016");
     }
@@ -76,7 +76,7 @@ public partial class StartInventoryViewModel : BaseViewModel
     [RelayCommand]
     private async Task Save()
     {
-        var inventoryItems = _storageService.GetInventoryItems();
+        var inventoryItems = StorageService.GetInventoryItems();
         await _csvFileService.SaveCsvFileAsync(inventoryItems);
     }
 
@@ -88,7 +88,7 @@ public partial class StartInventoryViewModel : BaseViewModel
         if (shouldExit) Environment.Exit(0);
     }
 
-    private static async Task ShowEmptySTNumberError()
+    private static async Task ShowEmptyStNumberError()
         => await DisplayHelper.DisplayToast("Label_0046");
 
     private static async Task ShowEmptyInventoryItemsError()

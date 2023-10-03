@@ -32,7 +32,7 @@ public partial class AddProductViewModel : ObservableObject
         var item = new InventoryItem()
         {
             Countingnum = items[0].Countingnum,
-            Barcode = Product!.STNumber ?? "",
+            Barcode = Product!.StNumber ?? "",
             Name = Product!.Name ?? "",
             Count = Product.Quantity,
             Info1 = Product!.Info1 ?? "",

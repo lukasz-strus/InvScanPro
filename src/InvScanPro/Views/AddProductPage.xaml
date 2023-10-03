@@ -33,7 +33,7 @@
                HorizontalOptions="Start"/>
 
             <Entry x:Name="eSTNumber"
-               Text="{Binding Product.STNumber}"
+               Text="{Binding Product.StNumber}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>

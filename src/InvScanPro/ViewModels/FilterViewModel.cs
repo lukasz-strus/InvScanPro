@@ -7,18 +7,18 @@ namespace InvScanPro.ViewModels;
 
 public partial class FilterViewModel : ObservableObject
 {
-    [ObservableProperty] private Inventory inventory;
+    [ObservableProperty] private Inventory _inventory;
 
     public FilterViewModel()
     {
-        Inventory = new()
+        Inventory = new Inventory
         {
             Date = DateTime.Now,            
         };
     }
 
     [RelayCommand]
-    async Task Filter()
+    private async Task Filter()
     {
         var navigationParameter = new Dictionary<string, object>
         {

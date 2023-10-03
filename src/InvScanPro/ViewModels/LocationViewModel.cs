@@ -47,7 +47,7 @@ public partial class LocationViewModel : BaseViewModel
     [RelayCommand]
     private async Task LoadFile()
     {
-        if (!_storageService.IsInventoryItemsEmpty())
+        if (!StorageService.IsInventoryItemsEmpty())
         {
             var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
             if (!shouldRemoveExistingDatabase) return;
@@ -55,9 +55,9 @@ public partial class LocationViewModel : BaseViewModel
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
-        _storageService.SetInventoryItems(inventoryItems);
+        StorageService.SetInventoryItems(inventoryItems);
 
-        Inventory!.Date = CacheHelper.GetDateFromCache(_storageService);
+        Inventory!.Date = CacheHelper.GetDateFromCache(StorageService);
 
         SetCaption("Label_0014");
     }

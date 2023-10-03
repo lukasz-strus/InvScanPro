@@ -11,26 +11,21 @@ namespace InvScanPro.ViewModels;
 [QueryProperty(nameof(STNumber), "STNumber")]
 public partial class GeneralViewModel : BaseViewModel
 {
-    private bool _navigateFromCreator = false;
+    private bool _navigateFromCreator;
     [ObservableProperty] private Inventory? _inventory;
     [ObservableProperty] private Product? _scannedProduct;
     [ObservableProperty] private string? _sTNumber;
 
-    private readonly ICsvFileService _csvFileService;
-
     public GeneralViewModel(
-        IStorageService storageService, 
-        ICsvFileService csvFileService) : base(storageService)
+        IStorageService storageService) : base(storageService)
     {
-        _csvFileService = csvFileService;
-
         SetCaption("Label_0016");
     }
 
     [RelayCommand]
     private void SaveQuantity()
     {
-        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
+        var inventoryItem = StorageService.GetInventoryItem(ScannedProduct!.StNumber!);
         inventoryItem!.Count = ScannedProduct!.Quantity;
         SetScannedProduct(inventoryItem);
     }
@@ -44,17 +39,17 @@ public partial class GeneralViewModel : BaseViewModel
             return;
         }
 
-        ScannedProduct = new()
+        ScannedProduct = new Product
         {
-            STNumber = STNumber
+            StNumber = STNumber
         };
 
-        var inventoryItem = _storageService.GetInventoryItem(ScannedProduct!.STNumber!);
+        var inventoryItem = StorageService.GetInventoryItem(ScannedProduct!.StNumber!);
 
         if (inventoryItem is null)
         {
             _navigateFromCreator = true;
-            var shouldAddNewItem = await ShouldAddNewItem(ScannedProduct.STNumber!);
+            var shouldAddNewItem = await ShouldAddNewItem(ScannedProduct.StNumber!);
             if (!shouldAddNewItem)
             {
                 Shell.Current?.GoToAsync("..");
@@ -67,7 +62,7 @@ public partial class GeneralViewModel : BaseViewModel
 
         SetScannedProduct(inventoryItem);
 
-        var shouldAddItemToInventory = await ShouldAddItemToInventory(ScannedProduct.STNumber!);
+        var shouldAddItemToInventory = await ShouldAddItemToInventory(ScannedProduct.StNumber!);
         if (!shouldAddItemToInventory) return;
 
         inventoryItem.Count++;
@@ -75,9 +70,9 @@ public partial class GeneralViewModel : BaseViewModel
     }
 
     private void SetScannedProduct(InventoryItem inventoryItem)
-        => ScannedProduct = new()
+        => ScannedProduct = new Product
         {
-            STNumber = inventoryItem.Barcode,
+            StNumber = inventoryItem.Barcode,
             Quantity = inventoryItem.Count,
             Name = inventoryItem.Name,
             Info1 = inventoryItem.Info1,
@@ -96,19 +91,10 @@ public partial class GeneralViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(AddProductPage)}", navigationParameter);
     }
 
-    private static async Task<bool> ShouldAddItemToInventory(string STNumber)
-        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0055", "Label_0044", "Label_0045", preMessage: STNumber);
+    private static async Task<bool> ShouldAddItemToInventory(string stNumber)
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0055", "Label_0044", "Label_0045", preMessage: stNumber);
 
-    private static async Task<bool> ShouldRemoveExistingDatabase()
-        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
-
-    private static async Task ShowEmptyInventoryItemsError()
-        => await DisplayHelper.DisplayError("Label_0040", "Label_0047");
-
-    private static async Task ShowEmptySTNumberError()
-        => await DisplayHelper.DisplayError("Label_0040", "Label_0046");
-
-    private static async Task<bool> ShouldAddNewItem(string STNumber)
-        => await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045", preMessage: STNumber);
+    private static async Task<bool> ShouldAddNewItem(string stNumber)
+        => await DisplayHelper.DisplayAlert("Label_0040", "Label_0048", "Label_0044", "Label_0045", preMessage: stNumber);
 
 }
