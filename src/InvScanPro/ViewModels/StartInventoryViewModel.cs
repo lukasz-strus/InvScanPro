@@ -85,7 +85,7 @@ public partial class StartInventoryViewModel : BaseViewModel
     {
         var shouldExit = await ShouldExit();
 
-        if (shouldExit) Environment.Exit(0);
+        if (shouldExit) await Shell.Current.GoToAsync("../../..");
     }
 
     private static async Task ShowEmptyStNumberError()
