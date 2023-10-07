@@ -32,8 +32,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eSTNumber"
-                   Text=""
+            <Entry Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -47,8 +46,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eName"
-                   Text=""
+            <Entry Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -63,8 +61,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo1"
-                   Text=""
+            <Entry Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -79,8 +76,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo2"
-                   Text=""
+            <Entry Text=""
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -95,15 +91,13 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eQuantity"
-                   Text=""
+            <Entry Text=""
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
         </StackLayout>
 
-        <Entry x:Name="eInventory"
-               Grid.Column="0"
+        <Entry Grid.Column="0"
                Grid.Row="5"
                Grid.ColumnSpan="3"               
                WidthRequest="320"
@@ -112,8 +106,7 @@
                HorizontalOptions="Start" 
                IsEnabled="False"/>
 
-        <Button x:Name="btnPrevious"
-                Grid.Column="1"
+        <Button Grid.Column="1"
                 Grid.Row="6"
                 Text="{StaticResource Label_0038}"
                 HeightRequest="50"
@@ -121,8 +114,7 @@
                 FontSize="16"
                 Command="{Binding PreviousCommand}"/>
 
-        <Button x:Name="btnNext"
-                Grid.Column="2"
+        <Button Grid.Column="2"
                 Grid.Row="6"
                 Text="{StaticResource Label_0039}"
                 HeightRequest="50"

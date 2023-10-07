@@ -35,8 +35,7 @@
             <Label Text="{StaticResource Label_0031}"
                    FontSize="17"
                    HorizontalOptions="Start"/>
-            <DatePicker x:Name="dateInv"
-                        Date="{Binding Inventory.Date}"
+            <DatePicker Date="{Binding Inventory.Date}"
                         FontSize="17"
                         Format="dd-MM-yyyy"
                         HorizontalOptions="FillAndExpand"
@@ -51,14 +50,12 @@
                    HorizontalOptions="Start"/>
 
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="eLocation"
-                       Text="{Binding Inventory.Location}"
+                <Entry Text="{Binding Inventory.Location}"
                        FontSize="17"
                        HorizontalOptions="FillAndExpand"
                        SemanticProperties.Hint="{StaticResource Label_0033}"/>
 
-                <Button x:Name="btnFilter"
-                        Text="{StaticResource Label_0035}"
+                <Button Text="{StaticResource Label_0035}"
                         Margin="20,0,0,0"
                         FontSize="17"
                         HorizontalOptions="End"
