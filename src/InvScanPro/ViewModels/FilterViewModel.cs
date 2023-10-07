@@ -17,6 +17,8 @@ public partial class FilterViewModel : BaseViewModel
         {
             Date = CacheHelper.GetDateFromCache(StorageService)
         };
+
+        SetCaption("Label_0029");
     }
 
     [RelayCommand]
