@@ -4,10 +4,9 @@
              xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
              x:DataType="vm:MainViewModel"
              x:Class="InvScanPro.Views.MainPage">
-
     <ScrollView>
         <VerticalStackLayout
-            Spacing="250"
+            Spacing="100"
             Padding="30,0">
             <StackLayout VerticalOptions="Start" Spacing="30">
                 <Image  Source="{AppThemeBinding Light={StaticResource LogoLight}, Dark={StaticResource LogoDark}}"
@@ -29,16 +28,26 @@
                         SemanticProperties.Hint="{StaticResource Label_0004}"
                         HorizontalOptions="Center"
                         Command="{Binding NavigateToFilterPageCommand}"/>
+
+                <Button Text="{StaticResource Label_0008}"
+                        HeightRequest="60"
+                        WidthRequest="200" 
+                        SemanticProperties.Hint="{StaticResource Label_0009}"
+                        HorizontalOptions="Center"
+                        Command ="{Binding LoadFileCommand}"/>
+
+                <Label Text="{Binding Caption}"
+                       HorizontalOptions="Center"/>
             </StackLayout>
             <StackLayout VerticalOptions="End">
-                <Button x:Name="btnClose" VerticalOptions="End"
-                        Text="{StaticResource Label_0028}"
-                        HeightRequest="60"
-                        WidthRequest="200"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
-                        SemanticProperties.Hint="{StaticResource Label_0028}"
-                        HorizontalOptions="Center"
-                        Command="{Binding CloseCommand}"/>
+                <Button  VerticalOptions="End"
+                         Text="{StaticResource Label_0028}"
+                         HeightRequest="60"
+                         WidthRequest="200"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
+                         SemanticProperties.Hint="{StaticResource Label_0028}"
+                         HorizontalOptions="Center"
+                         Command="{Binding CloseCommand}"/>
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
