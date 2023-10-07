@@ -1,19 +1,21 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using InvScanPro.Helpers;
 using InvScanPro.Models;
+using InvScanPro.Services;
 using InvScanPro.Views;
 
 namespace InvScanPro.ViewModels;
 
-public partial class FilterViewModel : ObservableObject
+public partial class FilterViewModel : BaseViewModel
 {
     [ObservableProperty] private Inventory _inventory;
 
-    public FilterViewModel()
+    public FilterViewModel(IStorageService storageService) : base(storageService)
     {
         Inventory = new Inventory
         {
-            Date = DateTime.Now,            
+            Date = CacheHelper.GetDateFromCache(StorageService)
         };
     }
 
@@ -27,4 +29,5 @@ public partial class FilterViewModel : ObservableObject
 
         await Shell.Current.GoToAsync(nameof(ProductDataPage), navigationParameter);
     }
+
 }
