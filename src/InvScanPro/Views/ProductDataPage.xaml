@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:InvScanPro.ViewModels"
              x:Class="InvScanPro.Views.ProductDataPage"
              x:DataType="vm:ProductDataViewModel"
-             Title="{StaticResource Label_0037}">
+             Title="{Binding Caption}">
     <Grid Margin="10"
           Padding="10"
           RowSpacing="50"
@@ -32,7 +32,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Product.StNumber}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -46,7 +46,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Product.Name}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -61,7 +61,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Product.Info1}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -76,7 +76,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Product.Info2}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -91,7 +91,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Product.Quantity}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
