@@ -25,6 +25,14 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
     private async Task NavigateToFilterPage()
     {
+        var inventoryEmpty = StorageService.IsInventoryItemsEmpty();
+
+        if (inventoryEmpty)
+        {
+            await DisplayHelper.DisplayToast("Label_0066");
+            return;
+        }
+
         await Shell.Current.GoToAsync(nameof(FilterPage));
     }
 
@@ -38,6 +46,8 @@ public partial class MainViewModel : BaseViewModel
         }
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
+
+        if(inventoryItems.Count == 0) return;
 
         StorageService.SetInventoryItems(inventoryItems);
 

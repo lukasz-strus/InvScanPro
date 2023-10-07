@@ -55,6 +55,8 @@ public partial class LocationViewModel : BaseViewModel
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
+        if (inventoryItems.Count == 0) return;
+
         StorageService.SetInventoryItems(inventoryItems);
 
         Inventory!.Date = CacheHelper.GetDateFromCache(StorageService);

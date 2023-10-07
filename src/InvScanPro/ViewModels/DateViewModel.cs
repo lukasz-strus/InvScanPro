@@ -50,6 +50,8 @@ public partial class DateViewModel : BaseViewModel
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
+        if (inventoryItems.Count == 0) return;
+
         StorageService.SetInventoryItems(inventoryItems);
 
         SetDate();
