@@ -102,9 +102,15 @@
                Grid.ColumnSpan="3"               
                WidthRequest="320"
                FontSize="17"
-               Text="{Binding Inventory, Converter={StaticResource FullInventoryConverter}}"
                HorizontalOptions="Start" 
-               IsEnabled="False"/>
+               IsEnabled="False">
+            <Entry.Text>
+                <MultiBinding StringFormat="{}{0}; {1}">
+                    <Binding Path="Inventory" Converter="{StaticResource FullInventoryConverter}" />
+                    <Binding Path="ListPosition" />
+                </MultiBinding>
+            </Entry.Text>
+        </Entry>
 
         <Button Grid.Column="1"
                 Grid.Row="6"

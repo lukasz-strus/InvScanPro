@@ -10,6 +10,7 @@ public partial class ProductDataViewModel : BaseViewModel
 {
     [ObservableProperty] private Inventory? _inventory;
     [ObservableProperty] private Product? _product;
+    [ObservableProperty] private string? _listPosition;
 
     private readonly List<InventoryItem> _inventoryItems;
 
@@ -48,17 +49,19 @@ public partial class ProductDataViewModel : BaseViewModel
 
     private void AssignToProduct(InventoryItem? inventoryItem)
     {
-        if (inventoryItem != null)
+        if (inventoryItem == null) return;
+
+        Product = new Product()
         {
-            Product = new Product()
-            {
-                StNumber = inventoryItem.Barcode,
-                Name = inventoryItem.Name,
-                Info1 = inventoryItem.Info1,
-                Info2 = inventoryItem.Info2,
-                Info3 = inventoryItem.Info3,
-                Quantity = inventoryItem.Count,
-            };
-        }
+            StNumber = inventoryItem.Barcode,
+            Name = inventoryItem.Name,
+            Info1 = inventoryItem.Info1,
+            Info2 = inventoryItem.Info2,
+            Info3 = inventoryItem.Info3,
+            Quantity = inventoryItem.Count,
+        };
+
+        var index = _inventoryItems.IndexOf(inventoryItem);
+        ListPosition = $"{index + 1}/{_inventoryItems.Count}";
     }
 }
