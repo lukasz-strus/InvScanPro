@@ -11,7 +11,7 @@ public partial class ProductDataViewModel : BaseViewModel
     [ObservableProperty] private Inventory? _inventory;
     [ObservableProperty] private Product? _product;
 
-    private List<InventoryItem> _inventoryItems;
+    private readonly List<InventoryItem> _inventoryItems;
 
     public ProductDataViewModel(IStorageService storageService) : base(storageService)
     {
@@ -19,32 +19,39 @@ public partial class ProductDataViewModel : BaseViewModel
 
         _inventoryItems = StorageService.GetInventoryItems();
         var firstInventoryItem = _inventoryItems.FirstOrDefault();
-
-        if (firstInventoryItem != null)
-        {
-            _product = new Product()
-            {
-                StNumber = firstInventoryItem.Barcode,
-                Name = firstInventoryItem.Name,
-                Info1 = firstInventoryItem.Info1,
-                Info2 = firstInventoryItem.Info2,
-                Info3 = firstInventoryItem.Info3,
-                Quantity = firstInventoryItem.Count,
-            };
-        }
+        AssignToProduct(firstInventoryItem);
     }
 
     [RelayCommand]
     private async Task Previous()
     {
-        //TODO create previous mechanism
+        //TODO create previous mechanism (REVERSE SKIP WHILE)
     }
 
     [RelayCommand]
-    private async Task Next()
+    private void Next()
     {
-        //TODO create next mechanism
+        var nextInventoryItem = _inventoryItems
+            .SkipWhile(i => i.Barcode != Product?.StNumber)
+            .Skip(1)
+            .FirstOrDefault();
+
+        AssignToProduct(nextInventoryItem);
     }
 
-
+    private void AssignToProduct(InventoryItem? inventoryItem)
+    {
+        if (inventoryItem != null)
+        {
+            Product = new Product()
+            {
+                StNumber = inventoryItem.Barcode,
+                Name = inventoryItem.Name,
+                Info1 = inventoryItem.Info1,
+                Info2 = inventoryItem.Info2,
+                Info3 = inventoryItem.Info3,
+                Quantity = inventoryItem.Count,
+            };
+        }
+    }
 }
