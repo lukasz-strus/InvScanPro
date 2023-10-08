@@ -100,5 +100,5 @@ public partial class StartInventoryViewModel : BaseViewModel
         => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");
 
     private static async Task<bool> ShouldExit()
-        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0064", "Label_0044", "Label_0045");
+        => await DisplayHelper.DisplayAlert("Label_0042", "Label_0067", "Label_0044", "Label_0045");
 }

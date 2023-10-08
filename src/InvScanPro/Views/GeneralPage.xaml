@@ -134,7 +134,6 @@
                 HeightRequest="50"
                 WidthRequest="150" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0056}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveQuantityCommand}"/>

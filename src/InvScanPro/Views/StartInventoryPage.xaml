@@ -50,8 +50,7 @@
                 Grid.Row="0"
                 Text="{StaticResource Label_0018}"
                 HeightRequest="60"
-                WidthRequest="100" 
-                BackgroundColor="{AppThemeBinding Light={StaticResource Yellow100Accent}, Dark={StaticResource Yellow100Accent}}"
+                WidthRequest="100"
                 SemanticProperties.Hint="{StaticResource Label_0019}"
                 HorizontalOptions="Center"
                 Command="{Binding SearchCommand}"/>
@@ -63,7 +62,7 @@
                 Text="{StaticResource Label_0008}"
                 HeightRequest="60"
                 WidthRequest="200"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
                 SemanticProperties.Hint="{StaticResource Label_0009}"
                 HorizontalOptions="Center"
                 Command ="{Binding LoadFileCommand}"/>

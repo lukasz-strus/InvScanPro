@@ -12,13 +12,21 @@ public partial class ProductDataViewModel : BaseViewModel
     [ObservableProperty] private Product? _product;
     [ObservableProperty] private string? _listPosition;
 
-    private readonly List<InventoryItem> _inventoryItems;
+    private List<InventoryItem>? _inventoryItems;
 
     public ProductDataViewModel(IStorageService storageService) : base(storageService)
     {
         SetCaption("Label_0037");
+    }
 
-        _inventoryItems = StorageService.GetInventoryItems();
+    [RelayCommand]
+    private void Init()
+    {
+        _inventoryItems = StorageService
+            .GetInventoryItems()
+            .Where(ItemIsInInventory)
+            .ToList();
+
         var firstInventoryItem = _inventoryItems.FirstOrDefault();
         AssignToProduct(firstInventoryItem);
     }
@@ -26,7 +34,7 @@ public partial class ProductDataViewModel : BaseViewModel
     [RelayCommand]
     private void Previous()
     {
-        var reversedInventoryItems = Enumerable.Reverse(_inventoryItems);
+        var reversedInventoryItems = Enumerable.Reverse(_inventoryItems!);
 
         var previousInventoryItem = reversedInventoryItems
             .SkipWhile(i => i.Barcode != Product?.StNumber)
@@ -39,7 +47,7 @@ public partial class ProductDataViewModel : BaseViewModel
     [RelayCommand]
     private void Next()
     {
-        var nextInventoryItem = _inventoryItems
+        var nextInventoryItem = _inventoryItems?
             .SkipWhile(i => i.Barcode != Product?.StNumber)
             .Skip(1)
             .FirstOrDefault();
@@ -61,7 +69,11 @@ public partial class ProductDataViewModel : BaseViewModel
             Quantity = inventoryItem.Count,
         };
 
-        var index = _inventoryItems.IndexOf(inventoryItem);
-        ListPosition = $"{index + 1}/{_inventoryItems.Count}";
+        var index = _inventoryItems?.IndexOf(inventoryItem);
+        ListPosition = $"{index + 1}/{_inventoryItems?.Count}";
     }
+
+    private bool ItemIsInInventory(InventoryItem inventory)
+        => Inventory?.Location == inventory.Location
+           && Inventory?.Date == inventory.Date;
 }
