@@ -23,9 +23,16 @@ public partial class ProductDataViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task Previous()
+    private void Previous()
     {
-        //TODO create previous mechanism (REVERSE SKIP WHILE)
+        var reversedInventoryItems = Enumerable.Reverse(_inventoryItems);
+
+        var previousInventoryItem = reversedInventoryItems
+            .SkipWhile(i => i.Barcode != Product?.StNumber)
+            .Skip(1)
+            .FirstOrDefault();
+
+        AssignToProduct(previousInventoryItem);
     }
 
     [RelayCommand]
