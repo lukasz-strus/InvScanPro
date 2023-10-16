@@ -1,5 +1,4 @@
-﻿using InvScanPro.ViewModels;
-using Microsoft.Extensions.Logging;
+﻿using BarcodeScanner.Mobile;
 using InvScanPro.Extensions;
 using Camera.MAUI;
 using CommunityToolkit.Maui;
@@ -19,6 +18,10 @@ public static class MauiProgram
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
         })
+            .ConfigureMauiHandlers(handlers =>
+            {
+                handlers.AddBarcodeScannerHandler();
+            })
             .UseMauiCameraView()
             .UseMauiCommunityToolkit();
 
