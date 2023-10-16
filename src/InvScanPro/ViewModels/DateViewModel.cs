@@ -42,7 +42,7 @@ public partial class DateViewModel : BaseViewModel
     [RelayCommand]
     private async Task LoadFile()
     {
-        if (!_storageService.IsInventoryItemsEmpty())
+        if (!StorageService.IsInventoryItemsEmpty())
         {
             var shouldRemoveExistingDatabase = await ShouldRemoveExistingDatabase();
             if (!shouldRemoveExistingDatabase) return;
@@ -50,13 +50,15 @@ public partial class DateViewModel : BaseViewModel
 
         var inventoryItems = await _csvFileService.LoadCsvFileAsync();
 
-        _storageService.SetInventoryItems(inventoryItems);
+        if (inventoryItems.Count == 0) return;
+
+        StorageService.SetInventoryItems(inventoryItems);
 
         SetDate();
         SetCaption("Label_0013");
     }
 
-    private void SetDate() => Date = CacheHelper.GetDateFromCache(_storageService);
+    private void SetDate() => Date = CacheHelper.GetDateFromCache(StorageService);
 
     private static async Task<bool> ShouldRemoveExistingDatabase()
         => await DisplayHelper.DisplayAlert("Label_0042", "Label_0043", "Label_0044", "Label_0045");

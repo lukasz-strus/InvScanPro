@@ -39,8 +39,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eSTNumber"
-                   Text="{Binding ScannedProduct.STNumber}"
+            <Entry Text="{Binding ScannedProduct.StNumber}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start">
@@ -55,8 +54,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
             
-            <Entry x:Name="eName"
-                   Text="{Binding ScannedProduct.Name}"
+            <Entry Text="{Binding ScannedProduct.Name}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -71,8 +69,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
             
-            <Entry x:Name="eInfo1"
-                   Text="{Binding ScannedProduct.Info1}"
+            <Entry Text="{Binding ScannedProduct.Info1}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -87,8 +84,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo2"
-                   Text="{Binding ScannedProduct.Info2}"
+            <Entry Text="{Binding ScannedProduct.Info2}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -103,8 +99,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo3"
-                   Text="{Binding ScannedProduct.Info3}"
+            <Entry Text="{Binding ScannedProduct.Info3}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -112,25 +107,20 @@
         </StackLayout>
 
         <StackLayout Grid.Column="0"
-                    Grid.Row="5"
-                    Grid.ColumnSpan="2">
+                     Grid.Row="5"
+                     Grid.ColumnSpan="2">
             <Label Text="{StaticResource Label_0024}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="eQuantity"
-                   Text="{Binding ScannedProduct.Quantity}"
-                   WidthRequest="100"
-                   FontSize="17"
-                   HorizontalOptions="Start"/>
+                <Entry Text="{Binding ScannedProduct.Quantity}"
+                       WidthRequest="100"
+                       FontSize="17"
+                       HorizontalOptions="Start"/>
 
-                <Entry x:Name="eInventory"
-                       Grid.Column="2"
-                       Grid.Row="5"
-                       Grid.ColumnSpan="2"
-                       Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
+                <Entry Text="{Binding Inventory, Converter={StaticResource InventoryConverter}}"
                        WidthRequest="240"
                        FontSize="17"
                        HorizontalOptions="End" 
@@ -138,14 +128,12 @@
             </StackLayout>
         </StackLayout>
 
-        <Button x:Name="btnSaveQuantity"
-                Grid.Column="1"
+        <Button Grid.Column="1"
                 Grid.Row="6"
                 Text="{StaticResource Label_0056}"
                 HeightRequest="50"
                 WidthRequest="150" 
                 FontSize="17"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
                 SemanticProperties.Hint="{StaticResource Label_0056}"
                 HorizontalOptions="Center"
                 Command="{Binding SaveQuantityCommand}"/>

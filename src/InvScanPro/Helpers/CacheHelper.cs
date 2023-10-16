@@ -13,7 +13,7 @@ internal static class CacheHelper
         => (DateTime)cacheService.GetInventoryItems().First(x => x.Date != null).Date!;
 
     private static bool IsDateNull(IStorageService cacheService)
-        => !cacheService.GetInventoryItems().Any(x => x.Date != null);
+        => cacheService.GetInventoryItems().All(x => x.Date == null);
 
     private static bool IsListEmpty(IStorageService cacheService)
         => cacheService.IsInventoryItemsEmpty();

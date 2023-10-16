@@ -22,8 +22,7 @@
             <ColumnDefinition Width=".33*"/>
             <ColumnDefinition Width=".33*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnScanQR"
-                Grid.Column="0"
+        <Button Grid.Column="0"
                 Grid.Row="1"
                 Grid.ColumnSpan="3"
                 Text="{StaticResource Label_0054}"
@@ -41,39 +40,34 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eSTNumber"
-                   Text="{Binding STNumber}"
+            <Entry Text="{Binding STNumber}"
                    WidthRequest="240"
                    FontSize="17"
                    HorizontalOptions="Start">
             </Entry>
         </StackLayout>
-        <Button x:Name="btnSearch"
-                Grid.Column="2"
+        <Button Grid.Column="2"
                 Grid.Row="0"
                 Text="{StaticResource Label_0018}"
                 HeightRequest="60"
-                WidthRequest="100" 
-                BackgroundColor="{AppThemeBinding Light={StaticResource Yellow100Accent}, Dark={StaticResource Yellow100Accent}}"
+                WidthRequest="100"
                 SemanticProperties.Hint="{StaticResource Label_0019}"
                 HorizontalOptions="Center"
                 Command="{Binding SearchCommand}"/>
 
 
-        <Button x:Name="btnLoadFile"
-                Grid.Column="0"
+        <Button Grid.Column="0"
                 Grid.Row="3"
                 Grid.ColumnSpan="3"
                 Text="{StaticResource Label_0008}"
                 HeightRequest="60"
                 WidthRequest="200"
-                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"
                 SemanticProperties.Hint="{StaticResource Label_0009}"
                 HorizontalOptions="Center"
                 Command ="{Binding LoadFileCommand}"/>
 
-        <Button x:Name="btnSave"
-                Grid.Column="0"
+        <Button Grid.Column="0"
                 Grid.Row="4"
                 Grid.ColumnSpan="3"
                 Text="{StaticResource Label_0025}"
@@ -84,8 +78,7 @@
                 HorizontalOptions="Center"
                 Command="{Binding SaveCommand}"/>
 
-        <Button x:Name="btnClose"
-                Grid.Column="0"
+        <Button Grid.Column="0"
                 Grid.Row="5"
                 Grid.ColumnSpan="3"
                 Text="{StaticResource Label_0028}"

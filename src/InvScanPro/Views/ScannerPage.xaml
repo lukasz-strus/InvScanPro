@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:vm ="clr-namespace:InvScanPro.ViewModels"
+             xmlns:mobile="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
              x:Class="InvScanPro.Views.ScannerPage">
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30"
             VerticalOptions="Center">
-            
-            <cv:CameraView
+
+            <mobile:CameraView
                 x:Name="CameraView"
                 HeightRequest="450"
                 WidthRequest="350"
-                CamerasLoaded="CameraView_CamerasLoaded"
-                BarCodeDetectionEnabled="True"
-                BarcodeDetected="CameraView_BarcodeDetected"/>
+                VibrationOnDetected="True"
+                ScanInterval="100"
+                OnDetected="CameraView_OnOnDetected"/>
 
         </VerticalStackLayout>
     </ScrollView>

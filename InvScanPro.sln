@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EE0BF525-7A20-48EB-8C5A-E5D36519AF95}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvScanPro.Tests", "tests\InvScanPro.Tests\InvScanPro.Tests.csproj", "{2F8BC80B-2EB7-4C3C-8491-95C685A4A427}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E5D8BBC1-248E-47FE-854D-90DA2A18BC4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvScanPro", "src\InvScanPro\InvScanPro.csproj", "{495BE1DA-E864-44A8-A5CA-EA209D6657CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvScanPro", "src\InvScanPro\InvScanPro.csproj", "{495BE1DA-E864-44A8-A5CA-EA209D6657CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2F8BC80B-2EB7-4C3C-8491-95C685A4A427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F8BC80B-2EB7-4C3C-8491-95C685A4A427}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F8BC80B-2EB7-4C3C-8491-95C685A4A427}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F8BC80B-2EB7-4C3C-8491-95C685A4A427}.Release|Any CPU.Build.0 = Release|Any CPU
 		{495BE1DA-E864-44A8-A5CA-EA209D6657CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{495BE1DA-E864-44A8-A5CA-EA209D6657CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495BE1DA-E864-44A8-A5CA-EA209D6657CA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -32,7 +24,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2F8BC80B-2EB7-4C3C-8491-95C685A4A427} = {EE0BF525-7A20-48EB-8C5A-E5D36519AF95}
 		{495BE1DA-E864-44A8-A5CA-EA209D6657CA} = {E5D8BBC1-248E-47FE-854D-90DA2A18BC4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

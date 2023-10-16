@@ -10,21 +10,11 @@ internal static class DisplayHelper
         string? preMessage = null,
         string? postMessage = null)
     {
-        Application.Current!.Resources.TryGetValue(label, out object labelValue);
+        Application.Current!.Resources.TryGetValue(label, out var labelValue);
         var sb = new StringBuilder();
-        sb.AppendJoin(" ", preMessage, labelValue.ToString(), postMessage);
+        sb.AppendJoin(" ", preMessage, labelValue?.ToString(), postMessage);
 
         await Toast.Make(sb.ToString()).Show();
-    }
-
-    internal static async Task DisplayError(
-        string titleLabel,
-        string messageLabel)
-    {
-        Application.Current!.Resources.TryGetValue(titleLabel, out object title);
-        Application.Current!.Resources.TryGetValue(messageLabel, out object message);
-
-        await Application.Current!.MainPage!.DisplayAlert(title.ToString(), message.ToString(), "OK");
     }
 
     internal static async Task<bool> DisplayAlert(
@@ -35,36 +25,18 @@ internal static class DisplayHelper
         string? preMessage = null,
         string? postMessage = null)
     {
-        Application.Current!.Resources.TryGetValue(titleLabel, out object title);
-        Application.Current!.Resources.TryGetValue(messageLabel, out object message);
-        Application.Current!.Resources.TryGetValue(yesLabel, out object yes);
-        Application.Current!.Resources.TryGetValue(noLabel, out object no);
+        Application.Current!.Resources.TryGetValue(titleLabel, out var title);
+        Application.Current.Resources.TryGetValue(messageLabel, out var message);
+        Application.Current.Resources.TryGetValue(yesLabel, out var yes);
+        Application.Current.Resources.TryGetValue(noLabel, out var no);
 
         var sb = new StringBuilder();
-        sb.AppendJoin(" ",preMessage, message.ToString(), postMessage);
+        sb.AppendJoin(" ",preMessage, message?.ToString(), postMessage);
 
-        return await Application.Current!.MainPage!.DisplayAlert(
-            title.ToString(),
+        return await Application.Current.MainPage!.DisplayAlert(
+            title?.ToString(),
             sb.ToString(),
-            yes.ToString(),
-            no.ToString());
-    }
-
-    internal static async Task<string> DisplayPromptAsync(
-        string titleLabel,
-        string messageLabel,
-        string acceptLabel,
-        string cancelLabel)
-    {
-        Application.Current!.Resources.TryGetValue(titleLabel, out object title);
-        Application.Current!.Resources.TryGetValue(messageLabel, out object message);
-        Application.Current!.Resources.TryGetValue(acceptLabel, out object accept);
-        Application.Current!.Resources.TryGetValue(cancelLabel, out object cancel);
-
-        return await Application.Current!.MainPage!.DisplayPromptAsync(
-            title.ToString(),
-            message.ToString(),
-            accept.ToString(),
-            cancel.ToString());
+            yes?.ToString(),
+            no?.ToString());
     }
 }

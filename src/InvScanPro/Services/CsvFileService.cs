@@ -1,11 +1,9 @@
-﻿using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Storage;
+﻿using CommunityToolkit.Maui.Storage;
 using CsvHelper;
 using CsvHelper.Configuration;
 using InvScanPro.Helpers;
 using InvScanPro.Models;
 using System.Globalization;
-using System.Threading;
 
 #if ANDROID
 using Android;
@@ -85,13 +83,13 @@ public class CsvFileService : ICsvFileService
     public async Task<List<InventoryItem>> LoadCsvFileAsync()
     {
         var records = new List<InventoryItem>();
-        Application.Current!.Resources.TryGetValue("Label_0060", out object pickerTitle);
+        Application.Current!.Resources.TryGetValue("Label_0060", out var pickerTitle);
 
         try
         {
             var result = await FilePicker.PickAsync(new PickOptions
             {
-                PickerTitle = pickerTitle.ToString()
+                PickerTitle = pickerTitle?.ToString()
             });
 
             if (result == null || !result.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
@@ -100,7 +98,7 @@ public class CsvFileService : ICsvFileService
                 return records;
             }
 
-            using var stream = await result.OpenReadAsync();
+            await using var stream = await result.OpenReadAsync();
             using var reader = new StreamReader(stream);
             using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {

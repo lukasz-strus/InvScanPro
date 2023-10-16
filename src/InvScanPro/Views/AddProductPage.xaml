@@ -32,8 +32,7 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eSTNumber"
-               Text="{Binding Product.STNumber}"
+            <Entry Text="{Binding Product.StNumber}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>
@@ -47,8 +46,7 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eName"
-               Text="{Binding Product.Name}"
+            <Entry Text="{Binding Product.Name}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>
@@ -62,8 +60,7 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo1"
-               Text="{Binding Product.Info1}"
+            <Entry Text="{Binding Product.Info1}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>
@@ -77,8 +74,7 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo2"
-               Text="{Binding Product.Info2}"
+            <Entry Text="{Binding Product.Info2}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>
@@ -92,8 +88,7 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo3"
-               Text="{Binding Product.Info3}"
+            <Entry Text="{Binding Product.Info3}"
                WidthRequest="320"
                FontSize="17"
                HorizontalOptions="Start"/>
@@ -107,15 +102,13 @@
                FontSize="17"
                HorizontalOptions="Start"/>
 
-            <Entry x:Name="eQuantity"
-               Text="{Binding Product.Quantity}"
+            <Entry Text="{Binding Product.Quantity}"
                WidthRequest="150"
                FontSize="17"
                HorizontalOptions="Start"/>
         </StackLayout>
 
-        <Button x:Name="btnSave"
-                Grid.Column="0"
+        <Button Grid.Column="0"
                 Grid.Row="6"
                 Text="{StaticResource Label_0025}"
                 HeightRequest="50"

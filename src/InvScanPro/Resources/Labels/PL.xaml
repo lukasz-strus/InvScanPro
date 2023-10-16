@@ -67,6 +67,9 @@
     <x:String x:Key="Label_0062">Plik został pomyślnie wczytany</x:String>
     <x:String x:Key="Label_0063">został dodany</x:String>
     <x:String x:Key="Label_0064">Czy na pewno chcesz zakończyć aplikacje?</x:String>
+    <x:String x:Key="Label_0065">Wczytana baza: </x:String>
+    <x:String x:Key="Label_0066">Nie wczytano bazy danych. Wczytaj aby przejść do informacji</x:String>
+    <x:String x:Key="Label_0067">Czy na pewno chcesz zakończyć skanowanie w obecnej lokalizacji?</x:String>
 
 
 </ResourceDictionary>

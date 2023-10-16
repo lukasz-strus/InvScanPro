@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:InvScanPro.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="InvScanPro.Views.ProductDataPage"
              x:DataType="vm:ProductDataViewModel"
-             Title="{StaticResource Label_0037}">
-    <Grid Margin="10"
+             Title="{Binding Caption}">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding InitCommand}" />
+    </ContentPage.Behaviors>
+<Grid Margin="10"
           Padding="10"
           RowSpacing="50"
           ColumnSpacing="10">
@@ -32,8 +38,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eSTNumber"
-                   Text=""
+            <Entry Text="{Binding Product.StNumber}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start"/>
@@ -47,8 +52,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eName"
-                   Text=""
+            <Entry Text="{Binding Product.Name}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -63,8 +67,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo1"
-                   Text=""
+            <Entry Text="{Binding Product.Info1}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -79,8 +82,7 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eInfo2"
-                   Text=""
+            <Entry Text="{Binding Product.Info2}"
                    WidthRequest="320"
                    FontSize="17"
                    HorizontalOptions="Start" 
@@ -95,25 +97,28 @@
                    FontSize="17"
                    HorizontalOptions="Start"/>
 
-            <Entry x:Name="eQuantity"
-                   Text=""
+            <Entry Text="{Binding Product.Quantity}"
                    WidthRequest="150"
                    FontSize="17"
                    HorizontalOptions="Start"/>
         </StackLayout>
 
-        <Entry x:Name="eInventory"
-               Grid.Column="0"
+        <Entry Grid.Column="0"
                Grid.Row="5"
                Grid.ColumnSpan="3"               
                WidthRequest="320"
                FontSize="17"
-               Text="{Binding Inventory, Converter={StaticResource FullInventoryConverter}}"
                HorizontalOptions="Start" 
-               IsEnabled="False"/>
+               IsEnabled="False">
+            <Entry.Text>
+                <MultiBinding StringFormat="{}{0}; {1}">
+                    <Binding Path="Inventory" Converter="{StaticResource FullInventoryConverter}" />
+                    <Binding Path="ListPosition" />
+                </MultiBinding>
+            </Entry.Text>
+        </Entry>
 
-        <Button x:Name="btnPrevious"
-                Grid.Column="1"
+        <Button Grid.Column="1"
                 Grid.Row="6"
                 Text="{StaticResource Label_0038}"
                 HeightRequest="50"
@@ -121,8 +126,7 @@
                 FontSize="16"
                 Command="{Binding PreviousCommand}"/>
 
-        <Button x:Name="btnNext"
-                Grid.Column="2"
+        <Button Grid.Column="2"
                 Grid.Row="6"
                 Text="{StaticResource Label_0039}"
                 HeightRequest="50"
